@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('tpolls', function (Blueprint $table) {
             $table->id();
+            $table->string('titel');
+            $table->tinyText('info');
+            $table->text('beschreibung');
+            $table->tinyInteger('status')->unsigned();
             $table->timestamps();
         });
     }
