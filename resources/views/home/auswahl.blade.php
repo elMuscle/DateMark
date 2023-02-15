@@ -4,7 +4,7 @@
 
 @section('inhalt')
 
-<h4 class="mt-7 mb-0 p-3 bg-owrBlue fg-white bd-owrBlue border-left border-size-4"><span class='mif-books'></span> Willkommen! <small class="fg-white">Hier findest du alle offenen Terminlisten</small></h4>
+<h4 class="mt-7 mb-0 p-3 bg-owrBlue fg-white bd-owrBlue border-left border-size-4"><span class='mif-books'></span> {{ __('layout.welcome') }} <small class="fg-white">{{ __('layout.lists') }}</small></h4>
 <div class="">
     @if ((count($tpolls_active)+count($tpolls_edit))>0)
         <ul class="border border-top-none p-3" data-role="listview" data-view="content" data-select-node="false" data-role="ripple" data-ripple-target="li">
@@ -20,13 +20,13 @@
                 <li data-icon="<span class='mif-clipboard fg-owrRed'>"
                     data-caption="{{ $tpoll->titel }}"
                     id="$count"
-                    data-content="Diese Liste wird gerade bearbeitet: Bitte komme später wieder."
+                    data-content="{{ __('layout.reconstruction') }}"
                 ></li>
             @endforeach
         </ul>
     @else
         <div class="border border-top-none p-5 bg-light">
-            <span class="remark alert"> Keine Terminliste vorhanden --> Entspannung ;)</span>
+            <span class="remark alert">{{ __('layout.notpolls') }}</span>
         </div>
     @endif
 
@@ -35,7 +35,7 @@
     <p>Danke für Deine Einsatzbereitschaft!</p>
 </div>
 <div class="p-3 mt-3 bg-grayWhite">
-    <p>--> Was können wir verbessern? <a href="mailto:datemark@lukaskubica.de">Gib uns Tipps!</a></p>
+    <p>--> {{ __('layout.improve') }} <a href="mailto:datemark@lukaskubica.de">{{ __('layout.suggestions') }}</a></p>
 </div>
 
 @endsection
