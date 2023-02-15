@@ -14,9 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(HomeController::class)->group(function () {
+    // Route::get('/', 'auswahl')->name('home.auswahl');
+    Route::get('/cookies', 'cookies')->name('home.cookies');
+    Route::get('/datenschutz', 'datenschutz')->name('home.datenschutz');
+    Route::get('/', 'auswahl')->name('home.index');
 });
+
+Route::resource('/tpolls', TpollController::class);
+
+Route::resource('/members',MemberController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
