@@ -1,8 +1,8 @@
 <p align="center">
   <img src="https://github.com/elMuscle/DateMark/blob/master/Images/DateMark-logo-github.png" style="max-height:50%;"><br />
-  <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/elMuscle/DateMark">
+  <!--<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/elMuscle/DateMark">
   <img alt="GitHub manifest version" src="https://img.shields.io/github/manifest-json/v/elMuscle/DateMark">
-  <img alt="GitHub" src="https://img.shields.io/github/license/elMuscle/DateMark">
+  <img alt="GitHub" src="https://img.shields.io/github/license/elMuscle/DateMark"> -->
 </p>
 
 # Welcome to my project DateMark! 📆
