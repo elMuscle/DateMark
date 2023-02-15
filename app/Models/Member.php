@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Member extends Model
 {
     use HasFactory;
+
+    public function events()
+    {
+
+        return $this->belongsToMany(Event::class)->withPivot('id', 'verfuegbarkeit');
+
+    }
 }
