@@ -3,18 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\StoreMemberRequest;
+use App\Http\Requests\UpdateMemberRequest;
 
 class MemberController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): Response
+    public function index(): View
     {
         //
+        $members = Member::all();
+
+        return view('members.index', [
+            'members' => $members,
+        ]);
     }
 
     /**
@@ -28,7 +36,7 @@ class MemberController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(StoreMemberRequest $request): RedirectResponse
     {
         //
     }
@@ -52,7 +60,7 @@ class MemberController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Member $member): RedirectResponse
+    public function update(UpdateMemberRequest $request, Member $member): RedirectResponse
     {
         //
     }

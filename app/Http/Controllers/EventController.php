@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\StoreMemberRequest;
+use App\Http\Requests\UpdateMemberRequest;
 
 class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): Response
+    public function index(): View
     {
         //
     }
@@ -28,7 +31,7 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(StoreMemberRequest $request): RedirectResponse
     {
         //
     }
@@ -52,7 +55,7 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Event $event): RedirectResponse
+    public function update(UpdateMemberRequest $request, Event $event): RedirectResponse
     {
         //
     }
