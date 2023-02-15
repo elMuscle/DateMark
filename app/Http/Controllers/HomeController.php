@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tpoll;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,16 +12,19 @@ class HomeController extends Controller
     //     return view('auswahl');
     // }
 
-    public function datenschutz() {
+    public function datenschutz(): View
+    {
         // return view('datenschutz');
         return view('home.datenschutz');
     }
 
-    public function cookies() {
+    public function cookies(): View
+    {
         return view('home.cookies');
     }
 
-    public function auswahl() {
+    public function auswahl(): View
+    {
         $tpolls = Tpoll::all()->sortByDesc('id');
 
         return view('home.auswahl', [
