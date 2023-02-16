@@ -6,9 +6,8 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
+                'resources/css/main.css',
                 'resources/js/app.js',
-                'resources/css/metro-all.min.css',
-                'resources/js/metro.min.js',
             ],
             refresh: true,
         }),

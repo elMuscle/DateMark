@@ -1,0 +1,160 @@
+.myCheckJa::before{
+  border-color: #60a917!important;
+  background: #60a917!important;
+}
+.myCheckVielleicht::before{
+  border-color: #f0a30a!important;
+  background: #f0a30a!important;
+}
+.myCheckNix::before{
+  border-color: #a0a0a0!important;
+  background: #a0a0a0!important;
+}
+.myCheckNein::before{
+  border-color: #CE352C!important;
+  background: #CE352C!important;
+}
+.verticalTableHeader {
+  text-align:center;
+  white-space:nowrap;
+  transform-origin:50% 50%;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  width: 50px;
+}
+.verticalTableHeader:before {
+  content:'';
+  padding-top:110%;/* takes width as reference, + 10% for faking some extra padding */
+  display:inline-block;
+  vertical-align:middle;
+
+}
+.rotate-90 {
+  transform: rotate(90deg);
+}
+.knopf {
+  width: fit-content !important;
+  width: -moz-fit-content;
+}
+.sticky {
+  position: sticky;
+  left:0;
+  z-index: 100;
+}
+.stickontop {
+  position: static;
+}
+.meinebreite {
+  overflow: auto;
+}
+
+.logo {
+  max-width: 50 px;
+}
+
+.app-bar-menu li {
+  list-style: none!important;
+}
+
+/* Farben */
+/* owrRed */
+.bd-owrRed {
+  border-color: rgb(222, 42, 47) !important;
+}
+.bd-owrRed-active:active {
+  border-color: rgb(222, 42, 47) !important;
+}
+.bd-owrRed-hover:hover {
+  border-color: rgb(222, 42, 47) !important;
+}
+.bd-owrRed-focus:focus {
+  border-color: rgb(222, 42, 47) !important;
+}
+.bg-owrRed {
+  background-color: rgb(222, 42, 47) !important;
+}
+.bg-owrRed-active:active {
+  background-color: rgb(222, 42, 47) !important;
+}
+.bg-owrRed-hover:hover {
+  background-color: rgb(222, 42, 47) !important;
+}
+.bg-owrRed-focus:focus {
+  background-color: rgb(222, 42, 47) !important;
+}
+.before-bg-owrRed::before {
+  background: rgb(222, 42, 47) !important;
+}
+.before-fg-owrRed::before {
+  color: rgb(222, 42, 47) !important;
+}
+.after-bg-owrRed::after {
+  background: rgb(222, 42, 47) !important;
+}
+.after-fg-owrRed::after {
+  color: rgb(222, 42, 47) !important;
+}
+.fg-owrRed {
+  color: rgb(222, 42, 47) !important;
+}
+.fg-owrRed-active:active {
+  color: rgb(222, 42, 47) !important;
+}
+.fg-owrRed-hover:hover {
+  color: rgb(222, 42, 47) !important;
+}
+.fg-owrRed-focus:focus {
+  color: rgb(222, 42, 47) !important;
+}
+/* owrowrRed */
+.bd-owrBlue {
+  border-color: rgb(0, 96, 174) !important;
+}
+.bd-owrBlue-active:active {
+  border-color: rgb(0, 96, 174) !important;
+}
+.bd-owrBlue-hover:hover {
+  border-color: rgb(0, 96, 174) !important;
+}
+.bd-owrBlue-focus:focus {
+  border-color: rgb(0, 96, 174) !important;
+}
+.bg-owrBlue {
+  background-color: rgb(0, 96, 174) !important;
+}
+.bg-owrBlue-active:active {
+  background-color: rgb(0, 96, 174) !important;
+}
+.bg-owrBlue-hover:hover {
+  background-color: rgb(0, 96, 174) !important;
+}
+.bg-owrBlue-focus:focus {
+  background-color: rgb(0, 96, 174) !important;
+}
+.before-bg-owrBlue::before {
+  background: rgb(0, 96, 174) !important;
+}
+.before-fg-owrBlue::before {
+  color: rgb(0, 96, 174) !important;
+}
+.after-bg-owrBlue::after {
+  background: rgb(0, 96, 174) !important;
+}
+.after-fg-owrBlue::after {
+  color: rgb(0, 96, 174) !important;
+}
+.fg-owrBlue {
+  color: rgb(0, 96, 174) !important;
+}
+.fg-owrBlue-active:active {
+  color: rgb(0, 96, 174) !important;
+}
+.fg-owrBlue-hover:hover {
+  color: rgb(0, 96, 174) !important;
+}
+.fg-owrBlue-focus:focus {
+  color: rgb(0, 96, 174) !important;
+}
