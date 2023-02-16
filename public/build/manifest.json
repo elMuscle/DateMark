@@ -1,12 +1,22 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-b85eabdc.css",
+    "file": "assets/app-735da497.css",
     "isEntry": true,
     "src": "resources/css/app.css"
+  },
+  "resources/css/metro-all.min.css": {
+    "file": "assets/metro-all.min-cae33ec5.css",
+    "isEntry": true,
+    "src": "resources/css/metro-all.min.css"
   },
   "resources/js/app.js": {
     "file": "assets/app-9a25e63b.js",
     "isEntry": true,
     "src": "resources/js/app.js"
+  },
+  "resources/js/metro.min.js": {
+    "file": "assets/metro.min-ac1a2815.js",
+    "isEntry": true,
+    "src": "resources/js/metro.min.js"
   }
 }

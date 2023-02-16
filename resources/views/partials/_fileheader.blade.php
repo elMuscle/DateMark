@@ -16,3 +16,4 @@
 <!-- Stylesheets -->
 <link rel="stylesheet" href="{{ url('css/metro-all.min.css') }}">
 <link rel="stylesheet" href="{{ url('css/main.css') }}"><?php echo PHP_EOL ?>
+

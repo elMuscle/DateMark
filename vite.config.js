@@ -7,6 +7,8 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
+                'resources/css/metro-all.min.css',
+                'resources/js/metro.min.js',
             ],
             refresh: true,
         }),
