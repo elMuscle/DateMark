@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
     @include('partials._fileheader')
     <title>@yield('title')</title>
