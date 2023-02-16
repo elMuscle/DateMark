@@ -1,6 +1,6 @@
 {
-    "short_name": "Weather",
-    "name": "Weather: Do I need an umbrella?",
+    "short_name": "DateMark",
+    "name": "DateMark",
     "icons": [
       {
         "src": "/images/icons-vector.svg",
@@ -40,7 +40,7 @@
         "icons": [{ "src": "/images/tomorrow.png", "sizes": "192x192" }]
       }
     ],
-    "description": "Weather forecast information",
+    "description": "Termine planen leicht gemacht!",
     "screenshots": [
       {
         "src": "/images/screenshot1.png",
