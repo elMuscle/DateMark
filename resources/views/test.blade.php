@@ -6,10 +6,17 @@
     <title>Bootstrap w/ Vite</title>
     @vite(['resources/css/bootstrap.css', 'resources/css/main.css', 'resources/js/app.js', 'resources/js/bootstrap.bundle.js'])
   </head>
-  <body>
-    <div class="container py-4 px-3 mx-auto">
-      <h1>Hello, Bootstrap and Vite!</h1>
-      <button class="btn btn-primary">Primary button</button>
-    </div>
+  <body data-bs-theme="light">
+    <x-navbar>
+        <x-navbar-link :href="route('dashboard')" :active="request()->routeIs('test')">
+            Dashboard
+        </x-navbar-link>
+        <x-navbar-link :href="route('members.index')" :active="request()->routeIs('dashboard')">
+            Dashboard
+        </x-navbar-link>
+        <x-navbar-link :href="route('tpolls.create')" :active="request()->routeIs('tpolls.create')">
+            +Tpoll
+        </x-navbar-link>
+    </x-navbar>
   </body>
 </html>

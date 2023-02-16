@@ -28,7 +28,7 @@ Route::resource('/tpolls', TpollController::class);
 
 Route::get('/test', function () {
     return view('test');
-});
+})->name('test');
 
 Route::resource('/members',MemberController::class);
 
