@@ -1,22 +1,27 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-735da497.css",
+    "file": "assets/app-ef5f0e11.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
-  "resources/css/metro-all.min.css": {
-    "file": "assets/metro-all.min-cae33ec5.css",
+  "resources/css/bootstrap.css": {
+    "file": "assets/bootstrap-897cd322.css",
     "isEntry": true,
-    "src": "resources/css/metro-all.min.css"
+    "src": "resources/css/bootstrap.css"
+  },
+  "resources/css/main.css": {
+    "file": "assets/main-8f9c8ac7.css",
+    "isEntry": true,
+    "src": "resources/css/main.css"
   },
   "resources/js/app.js": {
     "file": "assets/app-9a25e63b.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
-  "resources/js/metro.min.js": {
-    "file": "assets/metro.min-ac1a2815.js",
+  "resources/js/bootstrap.bundle.js": {
+    "file": "assets/bootstrap.bundle-3d02370a.js",
     "isEntry": true,
-    "src": "resources/js/metro.min.js"
+    "src": "resources/js/bootstrap.bundle.js"
   }
 }
