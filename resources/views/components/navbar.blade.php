@@ -1,5 +1,5 @@
 <div class="container-lg">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="/img/DateMark-logo-small.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
