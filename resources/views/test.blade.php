@@ -27,15 +27,18 @@
         </div>
     </div>
     <div class="container mt-5">
-        <div class="p-3 border border-secondary-subtle rounded-2 bg-body">
-            <h5>Tpoll 1 <span class="badge text-bg-success">Aktiv</span></h5>
-
-        </div>
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title">Tpoll 1</h5>
+                <p class="card-text">
+                    <p>Status: <span class="badge text-bg-success">active</span></p>
+                    <p>Tpoll info</p>
+                </p>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-success active">Active</a>
+                    <a href="#" class="btn btn-warning">Under Revision</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </div>
             </div>
         </div>
     </div>

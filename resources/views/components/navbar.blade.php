@@ -9,9 +9,25 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           {{ $slot }}
         </ul>
+        <div class="d-flex">
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ Auth::user()->name }}
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a></li>
+                  <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <li><a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();this.closest('form').submit();"
+                        >{{ __('Log Out') }}</a></li>
+                </form>
+                </ul>
+            </div>
+        </div>
       </div>
 
     </div>
