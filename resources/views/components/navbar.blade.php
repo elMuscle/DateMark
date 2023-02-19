@@ -10,7 +10,19 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          {{ $slot }}
+            <x-navbar-link :href="route('dashboard')" :active="request()->routeIs('test')">
+                Dashboard
+            </x-navbar-link>
+            <x-navbar-link :href="route('members.index')" :active="request()->routeIs('members.index')">
+                Members
+            </x-navbar-link>
+            <x-navbar-link :href="route('events.index')" :active="request()->routeIs('events.index')">
+                Events
+            </x-navbar-link>
+            <x-navbar-link :href="route('tpolls.create')" :active="request()->routeIs('tpolls.create')">
+                +Tpoll
+            </x-navbar-link>
+            {{ $slot }}
         </ul>
         <div class="d-flex">
             <div class="nav-item dropdown">
