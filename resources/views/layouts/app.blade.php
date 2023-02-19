@@ -11,7 +11,6 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> --}}
 
-        <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4.5.1/css/metro-all.min.css">
         <!-- Scripts -->
         @vite(['resources/css/bootstrap.css', 'resources/css/main.css', 'resources/js/app.js', 'resources/js/bootstrap.bundle.js'])
     </head>
@@ -43,6 +42,5 @@
         <main>
             {{ $slot }}
         </main>
-        <script src="https://cdn.korzh.com/metroui/v4/js/metro.min.js"></script>
     </body>
 </html>
