@@ -1,4 +1,4 @@
-<div class="container-lg">
+<div class="container">
     <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
@@ -22,7 +22,6 @@
             <x-navbar-link :href="route('tpolls.create')" :active="request()->routeIs('tpolls.create')">
                 +Tpoll
             </x-navbar-link>
-            {{ $slot }}
         </ul>
         <div class="d-flex">
             <div class="nav-item dropdown">

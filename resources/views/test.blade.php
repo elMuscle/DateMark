@@ -8,7 +8,7 @@
   </head>
   <body data-bs-theme="light" class="container-fluid bg-secondary-subtle px-0">
     <div class="container-fluid bg-body py-1">
-        <x-navbar />
+        @include('partials._navbar')
 
     </div>
     <div class="container-fluid bg-body border-top border-bottom border-secondary-subtle">
