@@ -20,7 +20,7 @@ class MemberFactory extends Factory
             'name' => fake()->firstName(),
             'surname' => fake()->lastName(),
             'phone' => fake()->phoneNumber(),
-            'status' => fake()->numberBetween(0,2)
+            'status' => fake()->numberBetween(0,1)
         ];
     }
 }
