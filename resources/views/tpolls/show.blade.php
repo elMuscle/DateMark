@@ -78,7 +78,7 @@ if(isset($nameincookie)){
         <tbody>
             @forelse ($usedmembers as $member)
                 <tr>
-                    <td class="sticky op-white">{{ $member->vorname }} {{ $member->nachname }}</td>
+                    <td class="sticky op-white">{{ $member->name }} {{ $member->surname }}</td>
                     @foreach ($events as $event)
                         @if ($member->events->contains($event->id))
 
@@ -150,16 +150,26 @@ if(isset($nameincookie)){
                 @endforeach
             </tr>
             <tr class="">
-                <td class="namensplatz">hello</td>
+                <td class="namensplatz">@if (isset($active_member->name))
+                    {{ $active_member->name }} {{ $active_member->surname }}
+                @else
+                    No Member selected
+                @endif</td>
+                @php
+                    $counter = 0;
+                @endphp
                 @foreach ($events as $event)
                     <td>
                         <div class="d-flex flex-column">
-                            <div class="p-2 text-center"><input type="radio" value="3" data-role="radio" data-style="2" data-cls-check="bd-green myCheckJa" name="{{ $event->id }}"></div>
-                            <div class="p-2 text-center"><input type="radio" value="2" data-role="radio" data-style="2" data-cls-check="bd-amber myCheckVielleicht" name="{{ $event->id }}"></div>
-                            <div class="p-2 text-center"><input type="radio" value="1" data-role="radio" data-style="2" data-cls-check="bd-gray myCheckNix" name="{{ $event->id }}" checked></div>
-                            <div class="p-2 text-center"><input type="radio" value="0" data-role="radio" data-style="2" data-cls-check="bd-red myCheckNein" name="{{ $event->id }}"></div>
+                            <div class="p-2 text-center"><input type="radio" value="3" data-role="radio" data-style="2" data-cls-check="bd-green myCheckJa" name="{{ $event->id }}" @if ($active_member_status[$counter] == 3) checked @endif></div>
+                            <div class="p-2 text-center"><input type="radio" value="2" data-role="radio" data-style="2" data-cls-check="bd-amber myCheckVielleicht" name="{{ $event->id }}" @if ($active_member_status[$counter] == 2) checked @endif></div>
+                            <div class="p-2 text-center"><input type="radio" value="1" data-role="radio" data-style="2" data-cls-check="bd-gray myCheckNix" name="{{ $event->id }}" @if ($active_member_status[$counter] == 1) checked @endif></div>
+                            <div class="p-2 text-center"><input type="radio" value="0" data-role="radio" data-style="2" data-cls-check="bd-red myCheckNein" name="{{ $event->id }}" @if ($active_member_status[$counter] == 0) checked @endif></div>
                         </div>
                     </td>
+                @php
+                    $counter++;
+                @endphp
                 @endforeach
             </tr>
             </tfoot>
@@ -170,16 +180,15 @@ if(isset($nameincookie)){
     <form method="GET" action="{{ Route('tpolls.show',$tpoll->id) }}" id="NamenAuswahl">
         @csrf
         <select class="w-50-sm mx-auto"  data-role="select" data-prepend="Name:" data-add-empty-value="true" data-filter-placeholder="Nach Namen suchen" data-on-change='document.getElementById("NamenAuswahl").submit()' name="member_id">
-            @foreach ($members as $member)
+            @foreach ($active_members as $member)
                 <option value="{{ $member->id }}"
-                    @if ($member->id == $active_member)
+                    @if (isset($active_member->id) && $member->id == $active_member->id)
                         selected="selected"
                     @endif
-                >{{ $member->vorname }} {{ $member->nachname }}</option>
+                >{{ $member->name }} {{ $member->surname }}</option>
             @endforeach
         </select>
     </form>
-    <p>{{ $active_member }}</p>
     <div class="d-flex flex-justify-center mt-4">
         <button class="image-button success w-50 w-25-sm" data-role="ripple" type='submit' value='Submit'>
             <span class="mif-floppy-disk icon"></span>
