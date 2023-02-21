@@ -7,32 +7,40 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
+        {{-- <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> --}}
 
-        <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4.5.1/css/metro-all.min.css">
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/css/main.css', 'resources/js/app.js'])
+        @vite(['resources/css/bootstrap.css', 'resources/css/main.css', 'resources/js/app.js', 'resources/js/bootstrap.bundle.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
+    <body data-bs-theme="
+    @if (isset($theme))
+        {{ $theme }}
+    @else
+        'light'
+    @endif
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+    " class="container-fluid bg-secondary-subtle px-0">
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+        <!-- Page Navigation -->
+        <div class="container-fluid bg-body py-1">
+            @include('partials._navbar')
         </div>
-        <script src="https://cdn.korzh.com/metroui/v4/js/metro.min.js"></script>
+        <!-- Page Header -->
+        <header>
+            <div class="container-fluid bg-body border-top border-bottom border-secondary-subtle">
+                <!-- Page Heading -->
+                @if (isset($header))
+                <div class="container px-4 py-3">
+                    {{ $header }}
+                </div>
+                @endif
+            </div>
+        </header>
+        <!-- Page Content -->
+        <main>
+            {{ $slot }}
+        </main>
     </body>
 </html>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\TpollController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProfileController;
@@ -27,6 +28,7 @@ Route::controller(HomeController::class)->group(function () {
 Route::resource('/tpolls', TpollController::class);
 
 Route::resource('/members',MemberController::class);
+Route::resource('/events',EventController::class);
 
 Route::get('/dashboard', [TpollController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 

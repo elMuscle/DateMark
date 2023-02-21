@@ -6,12 +6,15 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class tpoll-box extends Component
+class NavbarLink extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(
+        public string $href,
+        public string $active,
+    )
     {
         //
     }
@@ -21,6 +24,6 @@ class tpoll-box extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.tpoll-box');
+        return view('components.navbar-link');
     }
 }
