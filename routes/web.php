@@ -27,10 +27,6 @@ Route::controller(HomeController::class)->group(function () {
 
 Route::resource('/tpolls', TpollController::class);
 
-Route::get('/test', function () {
-    return view('test');
-})->name('test');
-
 Route::resource('/members',MemberController::class);
 Route::resource('/events',EventController::class);
 
