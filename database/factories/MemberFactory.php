@@ -17,9 +17,10 @@ class MemberFactory extends Factory
     public function definition(): array
     {
         return [
-            'vorname' => fake()->firstName(),
-            'nachname' => fake()->lastName(),
-            'telefon' => fake()->phoneNumber(),
+            'name' => fake()->firstName(),
+            'surname' => fake()->lastName(),
+            'phone' => fake()->phoneNumber(),
+            'status' => fake()->numberBetween(0,2)
         ];
     }
 }
