@@ -27,8 +27,8 @@ Route::controller(HomeController::class)->group(function () {
 
 Route::resource('/tpolls', TpollController::class);
 
-Route::resource('/members',MemberController::class);
-Route::resource('/events',EventController::class);
+Route::resource('/members',MemberController::class)->middleware('auth');
+Route::resource('/events',EventController::class)->middleware('auth');
 
 Route::get('/dashboard', [TpollController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
