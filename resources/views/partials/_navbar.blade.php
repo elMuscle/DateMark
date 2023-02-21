@@ -10,7 +10,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <x-navbar-link :href="route('dashboard')" :active="request()->routeIs('test')">
+            <x-navbar-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 Dashboard
             </x-navbar-link>
             <x-navbar-link :href="route('members.index')" :active="request()->routeIs('members.index')">
