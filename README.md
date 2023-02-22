@@ -17,7 +17,7 @@ Licensed under the MIT license
 ![GitHub](https://img.shields.io/github/license/elMuscle/DateMark)
 <!-- Credits [here]()! -->  
 
-If WLED really brightens up your day, you can [![](https://img.shields.io/badge/send%20me%20a%20small%20gift-paypal-blue.svg?style=flat-square)](https://paypal.me/lukaskubica)
+If DateMark really brightens up your day, you can [![](https://img.shields.io/badge/send%20me%20a%20small%20gift-paypal-blue.svg?style=flat-square)](https://paypal.me/lukaskubica)
 
 
 #Thanks to
