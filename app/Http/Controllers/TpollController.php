@@ -76,8 +76,16 @@ class TpollController extends Controller
 
         if (null !== $request->input('member_id')) {
 
+            if($request->_token != csrf_token()){
+                exit;
+            }
+
             //Aktueller Nutzer
             $active_member = Member::find($request->input('member_id'));
+
+            if ($active_member->status == 0) {
+                exit('user not valid');
+            }
 
             $active_member_status = [];
             //status of current user for events

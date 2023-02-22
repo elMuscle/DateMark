@@ -35,6 +35,19 @@ if(isset($nameincookie)){
 
 {{-- Tabelle --}}
 <div style="overflow-x:auto;">
+    <form method="post" id="MemberEntry" action="{{ route('tpollsguest.update') }}">
+        @csrf
+        @method('put')
+        {{-- General Inputs --}}
+        @if (isset($active_member->name))
+        <input type="hidden" name="tpoll_id" value="{{ $tpoll->id }}">
+        <input type="hidden" name="member_id" value="{{ $active_member->id }}">
+        <input type="hidden" name="events" value="@php
+            foreach ($events as $event) {
+                echo $event->id.',';
+            }
+        @endphp ">
+        @endif
     <table class="table subcompact striped row-hover text-center table-border cell-border">
         <thead>
         <tr>
@@ -149,12 +162,15 @@ if(isset($nameincookie)){
                     </td>
                 @endforeach
             </tr>
+
+
             <tr class="">
                 <td class="namensplatz">@if (isset($active_member->name))
                     {{ $active_member->name }} {{ $active_member->surname }}
                 @else
                     No Member selected
                 @endif</td>
+            {{-- Event Inputs --}}
                 @php
                     $counter = 0;
                 @endphp
@@ -172,8 +188,9 @@ if(isset($nameincookie)){
                 @endphp
                 @endforeach
             </tr>
-            </tfoot>
+        </tfoot>
     </table>
+    </form>
 </div>
 {{-- Formularfelder --}}
 <div class="mt-4">
@@ -189,12 +206,14 @@ if(isset($nameincookie)){
             @endforeach
         </select>
     </form>
+    @if (isset($active_member->name))
     <div class="d-flex flex-justify-center mt-4">
-        <button class="image-button success w-50 w-25-sm" data-role="ripple" type='submit' value='Submit'>
+        <button class="image-button success w-50 w-25-sm" data-role="ripple" type='submit' value='Submit' onclick="document.getElementById('MemberEntry').submit()">
             <span class="mif-floppy-disk icon"></span>
             <span class="caption text-center">Speichern</span>
         </button>
     </div>
+    @endif
 </div>
 @endsection
 

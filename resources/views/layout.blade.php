@@ -7,8 +7,6 @@
   <body class="m4-cloak">
     <div class="container-fluid">
 
-            @include('partials._adminmenu')
-
         <!-- Header -->
         @include('partials._maintenance')
         <header>
