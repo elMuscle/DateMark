@@ -1,5 +1,16 @@
 {
     "I love programming.": "Ich liebe es zu programmieren.",
     "Profile": "Profil bearbeiten",
-    "Log Out": "Ausloggen"
+    "Log Out": "Ausloggen",
+    "Members": "Mitglieder",
+    "Name": "Vorname",
+    "Surname": "Nachname",
+    "Phone": "Telefon",
+    "Delete": "Löschen",
+    "Edit": "Bearbeiten",
+
+
+    "Delete Member": "Mitglied löschen",
+    "active": "aktiv",
+    "not active": "deaktiviert"
 }

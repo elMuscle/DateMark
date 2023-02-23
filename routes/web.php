@@ -6,6 +6,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\TpollController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TpollGuestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +28,10 @@ Route::controller(HomeController::class)->group(function () {
 
 Route::resource('/tpolls', TpollController::class);
 
-Route::resource('/members',MemberController::class);
-Route::resource('/events',EventController::class);
+Route::put('tpollsguest', [TpollGuestController::class, 'update'])->name('tpollsguest.update');
+
+Route::resource('/members',MemberController::class)->middleware('auth');
+Route::resource('/events',EventController::class)->middleware('auth');
 
 Route::get('/dashboard', [TpollController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 

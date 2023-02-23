@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\StoreMemberRequest;
 use App\Http\Requests\UpdateMemberRequest;
 
@@ -44,17 +45,20 @@ class MemberController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Member $member): Response
+    public function show(Member $member): RedirectResponse
     {
-        //
+        return Redirect::route('members.edit',['member'=>$member]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Member $member): Response
+    public function edit(Member $member): View
     {
         //
+        return view('members.edit', [
+            'member' => $member,
+        ]);
     }
 
     /**
@@ -71,5 +75,7 @@ class MemberController extends Controller
     public function destroy(Member $member): RedirectResponse
     {
         //
+        Member::destroy($member->id);
+        return Redirect::route('members.index');
     }
 }
