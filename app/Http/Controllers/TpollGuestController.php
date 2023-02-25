@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Redirect;
 
 class TpollGuestController extends Controller
 {
-    public function show(Tpoll $tpoll,Request $request): View
+    public function show(Tpoll $tpoll,Request $request, Member $member_id): View
     {
         //Alle Events aus Datenbank holen
         $events = $tpoll->events()->where('datum', '>=', Carbon::now()->format('Y-m-d'))->orderBy('datum')->get();
@@ -79,7 +79,7 @@ class TpollGuestController extends Controller
 
 
 
-        return view('tpolls.show', [
+        return view('tpollsguest.show', [
             'tpoll' => $tpoll,
             'members' => $members,
             'usedmembers' => $usedmembers,
@@ -119,6 +119,6 @@ class TpollGuestController extends Controller
         //$tpoll->update($data);
 
         //return redirect()->route('tpolls.show',['tpoll_id'=>1]);
-        return Redirect::route('tpolls.show',["tpoll"=>$tpoll->id]);
+        return Redirect::route('tpollsguest.show',["tpoll"=>$tpoll->id, "member_id"=>$member->id,"_token"=>csrf_token()]);
     }
 }
