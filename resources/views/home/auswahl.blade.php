@@ -11,7 +11,7 @@
             @foreach ($tpolls_active as $tpoll)
                 <li data-icon="<span class='mif-clipboard fg-owrRed'>"
                     data-caption="{{ $tpoll->titel }}"
-                    onclick="window.location.href = '{{ route('tpolls.show',['tpoll'=>$tpoll->id]) }}';"
+                    onclick="window.location.href = '{{ route('tpollsguest.show',['tpoll'=>$tpoll->id]) }}';"
                     id="$count"
                     data-content="{{ $tpoll->info }}<!-- <div class='mt-1 w-50-sm w-25-xl' data-role='progress' data-value='0' data-small='true'>-->"
                 ></li>
