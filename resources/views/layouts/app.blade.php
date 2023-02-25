@@ -24,11 +24,11 @@
     " class="container-fluid bg-secondary-subtle px-0">
 
         <!-- Page Navigation -->
-        <div class="container-fluid bg-body py-1">
+        <div class="container-fluid bg-body py-1 d-print-none">
             @include('partials._navbar')
         </div>
         <!-- Page Header -->
-        <header>
+        <header class="d-print-none">
             <div class="container-fluid bg-body border-top border-bottom border-secondary-subtle">
                 <!-- Page Heading -->
                 @if (isset($header))

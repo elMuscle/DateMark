@@ -54,80 +54,13 @@ class TpollController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Tpoll $tpoll,Request $request): View
+    public function show(Tpoll $tpoll): View
     {
-        //Alle Events aus Datenbank holen
-        $events = $tpoll->events()->where('datum', '>=', Carbon::now()->format('Y-m-d'))->orderBy('datum')->get();
-        //Alle Nutzer aus Datenbank holen
-        $members = Member::all()->sortBy('name');
-        // Get all active Members from database
-        $active_members = Member::where('status', 1)->orderBy('name')->get(); //members who are set as active in Database
-        //Nutzer mit Events abgleichen und nur Nutzer-IDs auflisten, die auch Einträge haben.
-        $usedmembers = [];
-        foreach($members as $member) {
-            foreach ($events as $event) {
-                if($member->events->contains($event->id)) {
-                    array_push($usedmembers, $member->id);
-                }
-            }
-        }
-        //Nutzer mit IDs filtern
-        $usedmembers = $members->only($usedmembers);
-
-        if (null !== $request->input('member_id')) {
-
-            if($request->_token != csrf_token()){
-                exit;
-            }
-
-            //Aktueller Nutzer
-            $active_member = Member::find($request->input('member_id'));
-
-            if ($active_member->status == 0) {
-                exit('user not valid');
-            }
-
-            $active_member_status = [];
-            //status of current user for events
-            //look at every event
-            foreach ($events as $event) {
-                //and then at every member of this event
-                foreach ($event->members as $member) {
-                    $found = false;
-                    //when you find a member with id of active member, return the status, else, return 1
-                    if ($member->id == $active_member->id) {
-                        $status = $member->pivot->verfuegbarkeit;
-                        array_push($active_member_status, $status);
-                        $found = true;
-                    } else {
-                        if($found != true) {
-                            $found = false;
-                        }
-                    }
-                }
-                if ($found == false) {
-                    array_push($active_member_status, 1);
-                }
-            }
-        } else {
-            $active_member = 0;
-            $active_member_status = [];
-            foreach ($events as $event) {
-                array_push($active_member_status, 1);
-            }
-        }
-
-
-
+        //Get tpoll's events
+        $events = $tpoll->events()->get();
         return view('tpolls.show', [
             'tpoll' => $tpoll,
-            'members' => $members,
-            'usedmembers' => $usedmembers,
             'events' => $events,
-            'active_member' => $active_member,
-            'active_member_status' => $active_member_status,
-            'active_members' => $active_members,
-            'tage' => ['So','Mo','Di','Mi','Do','Fr','Sa']
         ]);
     }
 

@@ -1,73 +1,75 @@
-@extends('layout')
+<x-app-layout>
+    <x-slot name="header">
+        <h4>
+            {{ __('Create Tpoll') }}
+        </h4>
+    </x-slot>
 
-@section('title', 'ÖWR Planungstool LV Wien - Terminlisten')
-
-@section('inhalt')
-
-<h4 class="mt-7 mb-0 p-3 bg-owrBlue fg-white bd-owrBlue border-left border-size-4"><span class='mif-clipboard'></span> Tpoll erstellen</h4>
-<div class="p-5 border">
-<form method="post" action="{{ route('tpolls.store') }}">
-    @csrf
-    <div class="row mb-2">
-        <label for="tpoll_name" class="cell-sm-2">Titel</label>
-        <div class="cell-sm-10">
-            <input type="text" id="tpoll_name" name="tpoll_name" class="metro-input" value="{{ old('tpoll_name') }}">
-            @error('tpoll_name')
-                <small class="fg-red">{{ $message }}</small>
-            @enderror
-        </div>
+    <!-- Tpoll Form-->
+    <div class="container mt-5 p-3 bg-body rounded">
+        <form method="POST" action="{{ route('tpolls.store') }}">
+            @csrf
+            {{-- Input Title --}}
+            <div class="mb-3">
+                <label for="titel" class="form-label">Title</label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="titel" name="titel" value="" aria-describedby="TpollTitle">
+                    @error('titel')
+                        <div class="invalid-feedback">
+                        {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div id="TpollTitle" class="form-text">{{ __('Please choose a title for you Tpoll') }}</div>
+            </div>
+            {{-- Input Info --}}
+            <div class="mb-3">
+                <label for="info" class="form-label">Short Info</label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="info" name="info" value="" aria-describedby="TpollInfo">
+                    @error('info')
+                        <div class="invalid-feedback">
+                        {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div id="TpollInfo" class="form-text">{{ __('Please choose a Describtion for you Tpoll') }}</div>
+            </div>
+            {{-- Input Describtion --}}
+            <div class="mb-3">
+                <label for="beschreibung" class="form-label">Describtion</label>
+                <div class="input-group has-validation">
+                    <textarea class="form-control" id="beschreibung" name="beschreibung" aria-describedby="TpollDescribtion" rows="5"></textarea>
+                    @error('beschreibung')
+                        <div class="invalid-feedback">
+                        {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div id="TpollDescribtion" class="form-text">{{ __('Please choose a short Describtion for you Tpoll') }}</div>
+            </div>
+            {{-- Input Status --}}
+            <div class="mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="status" id="status1" value="2" checked>
+                    <label class="form-check-label" for="status1">
+                        {{ __('Active') }}
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="status" id="status2" value="1">
+                    <label class="form-check-label" for="status2">
+                        {{ __('In Progress') }}
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="status" id="status3" value="0">
+                    <label class="form-check-label" for="status3">
+                       {{ __('Archived') }}
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
-    <div class="row mb-2">
-        <label for="tpoll_info" class="cell-sm-2">Kurztitel</label>
-        <div class="cell-sm-10">
-            <input type="text" id="tpoll_info" name="tpoll_info" class="metro-input" value="{{ old('tpoll_info') }}">
-            @error('tpoll_info')
-                <small class="fg-red">{{ $message }}</small>
-            @enderror
-        </div>
-    </div>
-    <div class="row mb-2">
-        <label for="tpoll_desc" class="cell-sm-2">Beschreibung</label>
-        <div class="cell-sm-10">
-            <textarea id="tpoll_desc" value="{{ old('tpoll_desc') }}" name="tpoll_desc" data-role="textarea" data-auto-size="true" data-max-height="200" class="metro-input"></textarea>
-            @error('tpoll_desc')
-                <small class="fg-red">{{ $message }}</small>
-            @enderror
-        </div>
-    </div>
-    <div class="row mb-2">
-        <label for="tpoll_termine" class="cell-sm-2">Termine</label>
-        <div class="cell-sm-10">
-            <input  id="tpoll_termine" name="tpoll_termine" type="text" data-role="taginput" value="{{ old('tpoll_termine') }}">
-            @error('tpoll_termine')
-                <small class="fg-red">{{ $message }}</small>
-            @enderror
-        </div>
-    </div>
-    <div class="row mb-2">
-        <label for="tpoll_status" class="cell-sm-2">Status</label>
-        <div class="cell-sm-10">
-            <input name="tpoll_status" value="2" type="radio"
-                data-role="radio" data-caption="Freigegeben">
-            <input name="tpoll_status" value="1" type="radio"
-                data-role="radio" data-caption="In Bearbeitung" checked>
-        </div>
-        @error('tpoll_status')
-                <small class="fg-red">{{ $message }}</small>
-            @enderror
-    </div>
-    <div class="row">
-        <div class="cell">
-            <button type="submit" class="button success">Tpoll erstellen</button>
-        </div>
-    </div>
-</form>
-</div>
-@endsection
-
-@section('scripts')
-
-<script src="js/myscripts.js"></script>
-<script src="js/cookies.js"></script>
-
-@endsection
+</x-app-layout>

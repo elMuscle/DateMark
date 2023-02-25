@@ -9,6 +9,8 @@ class Event extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['datum', 'was', 'beginn', 'ende', 'ort','tpoll_id'];
+
     protected $casts = [
         'datum' => 'date:Y-m-d',
         'beginn' => 'datetime:H:i',

@@ -26,9 +26,10 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'auswahl')->name('home.index');
 });
 
-Route::resource('/tpolls', TpollController::class);
+Route::resource('/tpolls', TpollController::class)->middleware('auth');
 
 Route::put('tpollsguest', [TpollGuestController::class, 'update'])->name('tpollsguest.update');
+Route::get('tpollsguest/{tpoll}', [TpollGuestController::class, 'show'])->name('tpollsguest.show');
 
 Route::resource('/members',MemberController::class)->middleware('auth');
 Route::resource('/events',EventController::class)->middleware('auth');

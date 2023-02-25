@@ -22,6 +22,12 @@
             <x-navbar-link :href="route('tpolls.create')" :active="request()->routeIs('tpolls.create')">
                 +Tpoll
             </x-navbar-link>
+            <x-navbar-link :href="route('events.create')" :active="request()->routeIs('events.create')">
+                +Event
+            </x-navbar-link>
+            <x-navbar-link :href="route('members.create')" :active="request()->routeIs('members.create')">
+                +Member
+            </x-navbar-link>
         </ul>
         <div class="d-flex">
             <div class="nav-item dropdown">
