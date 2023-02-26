@@ -21,6 +21,7 @@
                 <tr>
                     {{-- <th scope="col">{{ __('ID') }}</th> --}}
                     <th scope="col">{{ __('Title') }}</th>
+                    <th scope="col">{{ __('Location') }}</th>
                     <th scope="col">{{ __('Date') }}</th>
                     <th scope="col">{{ __('Time') }}</th>
                     <th scope="col">{{ __('Edit') }}</th>
@@ -32,6 +33,7 @@
                             {{-- <td>{{ $event->id }}</td> --}}
                             <td><a href="{{ route('events.show',['event' => $event]) }}">{{ $event->was }}</a></td>
                             <td>{{ $event->ort }}</td>
+                            <td>{{ $event->datum->format('d.m.Y') }}</td>
                             <td>{{ $event->beginn->format('H:i') }} - {{ $event->ende->format('H:i') }}</td>
                             <td><a href="{{ route('events.edit',['event' => $event]) }}" type="button" class="btn btn-outline-warning">{{ __('Edit') }}</a></td>
                         </tr>

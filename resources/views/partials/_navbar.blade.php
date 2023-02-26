@@ -13,11 +13,11 @@
             <x-navbar-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 Dashboard
             </x-navbar-link>
-            <x-navbar-link :href="route('members.index')" :active="request()->routeIs('members.index')">
-                Members
-            </x-navbar-link>
             <x-navbar-link :href="route('events.index')" :active="request()->routeIs('events.index')">
                 Events
+            </x-navbar-link>
+            <x-navbar-link :href="route('members.index')" :active="request()->routeIs('members.index')">
+                Members
             </x-navbar-link>
             <x-navbar-link :href="route('tpolls.create')" :active="request()->routeIs('tpolls.create')">
                 +Tpoll
