@@ -124,7 +124,7 @@ if(isset($nameincookie)){
                 </tr>
             @endforelse
         </tbody>
-        <tfoot>
+        <tfoot class="d-none-print">
             <tr>
                 <td>Datum</td>
 
@@ -163,7 +163,7 @@ if(isset($nameincookie)){
                 @endforeach
             </tr>
 
-
+            @if (isset($active_member->name))
             <tr class="">
                 <td class="namensplatz">@if (isset($active_member->name))
                     {{ $active_member->name }} {{ $active_member->surname }}
@@ -188,12 +188,13 @@ if(isset($nameincookie)){
                 @endphp
                 @endforeach
             </tr>
+            @endif
         </tfoot>
     </table>
     </form>
 </div>
 {{-- Formularfelder --}}
-<div class="mt-4">
+<div class="mt-4 d-none-print">
     <form method="GET" action="{{ Route('tpollsguest.show',$tpoll->id) }}" id="NamenAuswahl">
         @csrf
         <select class="w-50-sm mx-auto"  data-role="select" data-prepend="Name:" data-add-empty-value="true" data-filter-placeholder="Nach Namen suchen" data-on-change='document.getElementById("NamenAuswahl").submit()' name="member_id">
