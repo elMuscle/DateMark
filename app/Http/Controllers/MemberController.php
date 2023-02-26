@@ -19,7 +19,7 @@ class MemberController extends Controller
     public function index(): View
     {
         //
-        $members = Member::all();
+        $members = Member::all()->sortBy('surname');
 
         return view('members.index', [
             'members' => $members,
@@ -29,9 +29,10 @@ class MemberController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): Response
+    public function create(): View
     {
         //
+        return view('members.create');
     }
 
     /**
@@ -40,6 +41,11 @@ class MemberController extends Controller
     public function store(StoreMemberRequest $request): RedirectResponse
     {
         //
+        $data = $request->validated();
+
+        Member::create($data);
+
+        return redirect()->route('members.index');
     }
 
     /**
@@ -67,6 +73,11 @@ class MemberController extends Controller
     public function update(UpdateMemberRequest $request, Member $member): RedirectResponse
     {
         //
+        $data = $request->validated();
+
+        $member->update($data);
+
+        return redirect()->route('members.index');
     }
 
     /**
