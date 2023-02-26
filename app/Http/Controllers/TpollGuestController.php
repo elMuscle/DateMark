@@ -51,6 +51,7 @@ class TpollGuestController extends Controller
             //status of current user for events
             //look at every event
             foreach ($events as $event) {
+                $found = false;
                 //and then at every member of this event
                 foreach ($event->members as $member) {
                     $found = false;
