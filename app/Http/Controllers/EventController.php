@@ -53,7 +53,7 @@ class EventController extends Controller
 
         Event::create($data);
 
-        return redirect()->route('tpolls.index');
+        return redirect()->route('tpolls.show', ['tpoll' => $data['tpoll_id']]);
     }
 
     /**

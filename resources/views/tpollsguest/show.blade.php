@@ -21,11 +21,14 @@ if(isset($nameincookie)){
 {{-- Legende für Tabellen --}}
 <div class="px-2 py-2 gap">
     <div class="row">
-        <div class="cell-5 cell-sm-3 cell-md-2 cell-xxl-1">
+        <div class="cell-3 cell-sm-3 cell-md-2 cell-xxl-1">
             <span class="fg-green place-left-sm"><span class="mif-checkmark"></span> : Bin dabei!</span>
         </div>
-        <div class="cell-5 cell-sm-3 cell-lg-2">
+        <div class="cell-4 cell-sm-3 cell-lg-2 cell-xxl-1">
             <span class="fg-amber place-left-sm">(<span class="mif-checkmark"></span> ) : Vielleicht!</span>
+        </div>
+        <div class="cell-4 cell-sm-3 cell-lg-2">
+            <span class="fg-red place-left-sm">(<span class="mif-cross"></span> ) : Ich kann nicht!</span>
         </div>
         <!--<div class="cell-3 d-none d-inline-lg cell-xl-2 offset-3 offset-md-5 offset-lg-5 offset-xl-6 offset-xxl-7">
             <button class="button knopf place-right" id="tableresizer" onclick="tablesize();buttonaenderung();"><span class="mif-unfold-more rotate-90"></span>Tabelle vergrößern</button>
@@ -91,7 +94,7 @@ if(isset($nameincookie)){
         <tbody>
             @forelse ($usedmembers as $member)
                 <tr>
-                    <td class="sticky op-white">{{ $member->name }} {{ $member->surname }}</td>
+                    <td class="sticky op-white">{{ str(Str::substr($member->surname, 0, 3))->append('.') }} {{ $member->name }} </td>
                     @foreach ($events as $event)
                         @if ($member->events->contains($event->id))
 

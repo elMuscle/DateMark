@@ -11,7 +11,7 @@
             @csrf
             {{-- Input Title --}}
             <div class="mb-3">
-                <label for="titel" class="form-label">Title</label>
+                <label for="titel" class="form-label">{{ __('Title') }}</label>
                 <div class="input-group has-validation">
                     <input type="text" class="form-control" id="titel" name="titel" value="" aria-describedby="TpollTitle">
                     @error('titel')
@@ -24,7 +24,7 @@
             </div>
             {{-- Input Info --}}
             <div class="mb-3">
-                <label for="info" class="form-label">Short Info</label>
+                <label for="info" class="form-label">{{ __('Short Info') }}</label>
                 <div class="input-group has-validation">
                     <input type="text" class="form-control" id="info" name="info" value="" aria-describedby="TpollInfo">
                     @error('info')
@@ -33,20 +33,20 @@
                         </div>
                     @enderror
                 </div>
-                <div id="TpollInfo" class="form-text">{{ __('Please choose a Describtion for you Tpoll') }}</div>
+                <div id="TpollInfo" class="form-text">{{ __('Please choose a Description for you Tpoll') }}</div>
             </div>
-            {{-- Input Describtion --}}
+            {{-- Input Description --}}
             <div class="mb-3">
-                <label for="beschreibung" class="form-label">Describtion</label>
+                <label for="beschreibung" class="form-label">{{ __('Description') }}</label>
                 <div class="input-group has-validation">
-                    <textarea class="form-control" id="beschreibung" name="beschreibung" aria-describedby="TpollDescribtion" rows="5"></textarea>
+                    <textarea class="form-control" id="beschreibung" name="beschreibung" aria-describedby="TpollDescription" rows="5"></textarea>
                     @error('beschreibung')
                         <div class="invalid-feedback">
                         {{ $message }}
                         </div>
                     @enderror
                 </div>
-                <div id="TpollDescribtion" class="form-text">{{ __('Please choose a short Describtion for you Tpoll') }}</div>
+                <div id="TpollDescription" class="form-text">{{ __('Please choose a short Description for you Tpoll') }}</div>
             </div>
             {{-- Input Status --}}
             <div class="mb-3">
@@ -69,7 +69,7 @@
                     </label>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
         </form>
     </div>
 </x-app-layout>

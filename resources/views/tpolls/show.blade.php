@@ -24,6 +24,7 @@
                     <th scope="col">{{ __('Location') }}</th>
                     <th scope="col">{{ __('Date') }}</th>
                     <th scope="col">{{ __('Time') }}</th>
+                    <th scope="col">{{ __('Coming') }}</th>
                     <th scope="col">{{ __('Edit') }}</th>
                 </tr>
                 </thead>
@@ -35,6 +36,7 @@
                             <td>{{ $event->ort }}</td>
                             <td>{{ $event->datum->format('d.m.Y') }}</td>
                             <td>{{ $event->beginn->format('H:i') }} - {{ $event->ende->format('H:i') }}</td>
+                            <td>{{ $event->members()->where('verfuegbarkeit','=', '3')->$table->text('description')->nullable()->default('text');() }}</td>
                             <td><a href="{{ route('events.edit',['event' => $event]) }}" type="button" class="btn btn-outline-warning">{{ __('Edit') }}</a></td>
                         </tr>
                     @endforeach
