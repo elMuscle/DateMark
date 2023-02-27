@@ -1,7 +1,7 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="{{ route('home.index') }}">
         <img src="/img/DateMark-logo-small.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
         DateMark
       </a>
@@ -13,11 +13,11 @@
             <x-navbar-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 Dashboard
             </x-navbar-link>
-            <x-navbar-link :href="route('members.index')" :active="request()->routeIs('members.index')">
-                Members
-            </x-navbar-link>
             <x-navbar-link :href="route('events.index')" :active="request()->routeIs('events.index')">
                 Events
+            </x-navbar-link>
+            <x-navbar-link :href="route('members.index')" :active="request()->routeIs('members.index')">
+                Members
             </x-navbar-link>
             <x-navbar-link :href="route('tpolls.create')" :active="request()->routeIs('tpolls.create')">
                 +Tpoll

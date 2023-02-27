@@ -19,7 +19,6 @@
             <table class="table table-striped">
                 <thead class="table-primary">
                     <tr>
-                        <th scope="col">{{ __('ID') }}</th>
                         <th scope="col">{{ __('Surname') }}</th>
                         <th scope="col">{{ __('Name') }}</th>
                         <th scope="col">{{ __('Phone') }}</th>
@@ -32,7 +31,6 @@
                 <tbody class="table-group-divider">
                     @foreach ($event->members as $member)
                         <tr>
-                            <td>{{ $member->id }}</td>
                             <td>{{ $member->surname }}</td>
                             <td>{{ $member->name }}</td>
                             <td>{{ $member->phone }}</td>

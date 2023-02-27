@@ -19,7 +19,7 @@ class TpollGuestController extends Controller
         //Alle Events aus Datenbank holen
         $events = $tpoll->events()->where('datum', '>=', Carbon::now()->format('Y-m-d'))->orderBy('datum')->get();
         //Alle Nutzer aus Datenbank holen
-        $members = Member::all()->sortBy('name');
+        $members = Member::all()->sortBy('surname');
         // Get all active Members from database
         $active_members = Member::where('status', 1)->orderBy('name')->get(); //members who are set as active in Database
         //Nutzer mit Events abgleichen und nur Nutzer-IDs auflisten, die auch Einträge haben.
@@ -51,6 +51,7 @@ class TpollGuestController extends Controller
             //status of current user for events
             //look at every event
             foreach ($events as $event) {
+                $found = false;
                 //and then at every member of this event
                 foreach ($event->members as $member) {
                     $found = false;

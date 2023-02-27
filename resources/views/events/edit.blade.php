@@ -94,7 +94,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
         </form>
     </div>
     <div class="container p-3 bg-body rounded mt-3">

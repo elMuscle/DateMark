@@ -12,5 +12,16 @@
 
     "Delete Member": "Mitglied löschen",
     "active": "aktiv",
-    "not active": "deaktiviert"
+    "not active": "deaktiviert",
+
+    "Title": "Titel",
+    "Location": "Ort",
+    "Date": "Datum",
+    "Time": "Uhrzeit",
+    "Coming": "Kommen fix",
+    "Member Status": "Mitgliedsstatus",
+    "will come": "kommt",
+    "maybe": "vielleicht",
+    "will not come": "kommt nicht",
+    "": ""
 }
