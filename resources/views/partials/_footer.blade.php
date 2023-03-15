@@ -1,4 +1,4 @@
-<footer class="mt-10 row bg-lightGray bd-gray border-top border-size-5">
+<footer class="mt-10 row bg-lightGray bd-gray border-top border-size-5 d-none-print">
     <div class="cell-5 cell-md p-2">
       <span>© Lukas Kubica <span class="d-none d-inline-md"> {{ __('layout.usage') }} &nbsp;<a href="https://metroui.org.ua/" class="fg-black fg-darkGray-hover">Metro 4 UI CSS</a></span></span>
     </div>

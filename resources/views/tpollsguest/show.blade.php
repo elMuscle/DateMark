@@ -6,7 +6,7 @@
 
 {{-- Beschreibung --}}
 <h4 class="mt-3 mt-7-md mb-0 p-3 bg-owrBlue fg-white bd-owrBlue border-left border-size-4"><span class='mif-clipboard'></span> {{ $tpoll->titel }}</h4>
-<div class="p-3 pt-7 bg-grayWhite bd-owrBlue border-left border-size-4">
+<div class="p-3 pt-7 bg-grayWhite bd-owrBlue border-left border-size-4 d-none-print">
 <?php
 if(isset($nameincookie)){
     $vorname = explode(" ",$nameincookie);
@@ -19,7 +19,7 @@ if(isset($nameincookie)){
 </div>
 
 {{-- Legende für Tabellen --}}
-<div class="px-2 py-2 gap">
+<div class="px-2 py-2 gap d-none-print">
     <div class="row">
         <div class="cell-3 cell-sm-3 cell-md-2 cell-xxl-1">
             <span class="fg-green place-left-sm"><span class="mif-checkmark"></span> : Bin dabei!</span>
