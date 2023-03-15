@@ -11,7 +11,7 @@ class Member extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['name', 'surname', 'phone', 'status'];
+    protected $fillable = ['name', 'surname', 'phone', 'status', 'mail'];
 
     public function events()
     {
