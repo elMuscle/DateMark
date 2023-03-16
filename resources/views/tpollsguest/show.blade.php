@@ -206,7 +206,7 @@ if(isset($nameincookie)){
                     @if (isset($active_member->id) && $member->id == $active_member->id)
                         selected="selected"
                     @endif
-                >{{ $member->name }} {{ $member->surname }}</option>
+                >{{ $member->name }} {{ str(Str::substr($member->surname, 0, 3))->append('.') }}</option>
             @endforeach
         </select>
     </form>
