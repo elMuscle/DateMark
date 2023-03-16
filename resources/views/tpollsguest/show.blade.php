@@ -20,20 +20,9 @@ if(isset($nameincookie)){
 
 {{-- Legende für Tabellen --}}
 <div class="px-2 py-2 gap d-none-print">
-    <div class="row">
-        <div class="cell-3 cell-sm-3 cell-md-2 cell-xxl-1">
-            <span class="fg-green place-left-sm"><span class="mif-checkmark"></span> : Bin dabei!</span>
-        </div>
-        <div class="cell-4 cell-sm-3 cell-lg-2 cell-xxl-1">
-            <span class="fg-amber place-left-sm">(<span class="mif-checkmark"></span> ) : Vielleicht!</span>
-        </div>
-        <div class="cell-4 cell-sm-3 cell-lg-2">
-            <span class="fg-red place-left-sm">(<span class="mif-cross"></span> ) : Ich kann nicht!</span>
-        </div>
-        <!--<div class="cell-3 d-none d-inline-lg cell-xl-2 offset-3 offset-md-5 offset-lg-5 offset-xl-6 offset-xxl-7">
-            <button class="button knopf place-right" id="tableresizer" onclick="tablesize();buttonaenderung();"><span class="mif-unfold-more rotate-90"></span>Tabelle vergrößern</button>
-        </div>-->
-    </div>
+    <span class="fg-green d-inline mr-3"><span class="mif-checkmark"></span> : Bin dabei!</span>
+    <span class="fg-amber d-inline mr-3">(<span class="mif-checkmark"></span> ) : Vielleicht!</span>
+    <span class="fg-red d-inline">(<span class="mif-cross"></span> ) : Ich kann nicht!</span>
 </div>
 
 {{-- Tabelle --}}
