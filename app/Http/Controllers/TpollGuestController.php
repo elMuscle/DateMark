@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Event;
 use App\Models\Tpoll;
 use App\Models\Member;
 use Illuminate\View\View;
@@ -121,5 +122,71 @@ class TpollGuestController extends Controller
 
         //return redirect()->route('tpolls.show',['tpoll_id'=>1]);
         return Redirect::route('tpollsguest.show',["tpoll"=>$tpoll->id, "member_id"=>$member->id,"_token"=>csrf_token()]);
+    }
+
+    public function member(Request $request, Member $member): View
+    {
+        //Get all Members from Database
+        $members = Member::all()->sortBy('surname');
+
+        //Check if user is selected
+        if (null !== $request->input('member_id')) {
+
+            //Check CSRF-Token is valid
+            if($request->_token != csrf_token()){
+                exit;
+            }
+
+            //Aktueller Nutzer
+            $active_member = Member::find($request->input('member_id'));
+
+            if ($active_member->status == 0) {
+                exit('user not valid');
+            }
+
+            //Get all Events of Member
+            $events = $active_member->events()->where('datum', '>=', Carbon::now()->format('Y-m-d'))->orderBy('datum')->get();
+
+        } elseif (null !== $request->member_id) {
+            //Check CSRF-Token is valid
+            if($request->_token != csrf_token()){
+                exit;
+            }
+
+            //Aktueller Nutzer
+            $active_member = $member;
+
+            if ($active_member->status == 0) {
+                exit('user not valid');
+            }
+
+            //Get all Events of Member
+            $events = $active_member->events()->where('datum', '>=', Carbon::now()->format('Y-m-d'))->orderBy('datum')->get();
+        } else {
+            $active_member = 0;
+            $events = [];
+
+        }
+
+        return view('tpollsguest.user', [
+            'members' => $members,
+            'events' => $events,
+            'active_member' => $active_member,
+        ]);
+    }
+
+    public function cancel(Request $request): RedirectResponse
+    {
+        //Check CSRF
+        if($request->_token != csrf_token()){
+            exit;
+        }
+        //Find member and event
+        $member = Member::find($request->input('member_id'));
+        $event = Event::find($request->input('event_id'));
+        //remove entry
+        $member->events()->detach($event->id);
+        //Return view
+        return Redirect::route('tpollsguest.member',["member_id"=>$member->id,"_token"=>csrf_token()]);
     }
 }

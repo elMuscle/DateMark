@@ -29,7 +29,9 @@ Route::controller(HomeController::class)->group(function () {
 Route::resource('/tpolls', TpollController::class)->middleware('auth');
 
 Route::put('tpollsguest', [TpollGuestController::class, 'update'])->name('tpollsguest.update');
+Route::delete('member-events', [TpollGuestController::class, 'cancel'])->name('tpollsguest.cancel');
 Route::get('tpollsguest/{tpoll}', [TpollGuestController::class, 'show'])->name('tpollsguest.show');
+Route::get('/member-events', [TpollGuestController::class, 'member'])->name('tpollsguest.member');
 
 Route::resource('/members',MemberController::class)->middleware('auth');
 Route::resource('/events',EventController::class)->middleware('auth');

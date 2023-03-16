@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('surname');
             $table->string('phone');
+            $table->string('mail');
             $table->tinyInteger('status')->unsigned();
             $table->timestamps();
             $table->softDeletes();

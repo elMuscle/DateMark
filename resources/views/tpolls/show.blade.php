@@ -36,7 +36,7 @@
                             <td>{{ $event->ort }}</td>
                             <td>{{ $event->datum->format('d.m.Y') }}</td>
                             <td>{{ $event->beginn->format('H:i') }} - {{ $event->ende->format('H:i') }}</td>
-                            <td>{{ $event->members()->where('verfuegbarkeit','=', '3')->$table->text('description')->nullable()->default('text');() }}</td>
+                            <td>{{ $event->members()->where('verfuegbarkeit','=', '3')->count() }}</td>
                             <td><a href="{{ route('events.edit',['event' => $event]) }}" type="button" class="btn btn-outline-warning">{{ __('Edit') }}</a></td>
                         </tr>
                     @endforeach
