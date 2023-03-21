@@ -158,7 +158,7 @@ if(isset($nameincookie)){
             @if (isset($active_member->name))
             <tr class="">
                 <td class="namensplatz">@if (isset($active_member->name))
-                    {{ $active_member->name }} {{ $active_member->surname }}
+                    {{ $active_member->name }} {{ str(Str::substr($active_member->surname, 0, 3))->append('.') }}
                 @else
                     No Member selected
                 @endif</td>
@@ -208,6 +208,7 @@ if(isset($nameincookie)){
     </div>
     @endif
 </div>
+@include('partials._footer')
 @endsection
 
 @section('scripts')

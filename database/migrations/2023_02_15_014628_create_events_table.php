@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('ort');
             $table->time('beginn');
             $table->time('ende');
+            $table->tinyInteger('need')->unsigned();
             $table->timestamps();
         });
     }

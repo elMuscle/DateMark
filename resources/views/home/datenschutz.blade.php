@@ -21,7 +21,7 @@
     die ÖWR-Wien<br />
     </p>
 </div>
-
+@include('partials._footer')
 @endsection
 
 @section('scripts')

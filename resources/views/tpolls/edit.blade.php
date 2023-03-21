@@ -52,19 +52,13 @@
             {{-- Input Status --}}
             <div class="mb-3">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="status" id="status1" value="2" @if ($tpoll->status == 2) checked @endif>
+                    <input class="form-check-input" type="radio" name="status" id="status1" value="2" {{-- @if ($tpoll->status >= 2) checked @endif --}}>
                     <label class="form-check-label" for="status1">
                         {{ __('Active') }}
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="status" id="status2" value="1" @if ($tpoll->status == 1) checked @endif>
-                    <label class="form-check-label" for="status2">
-                        {{ __('In Progress') }}
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="status" id="status3" value="0" @if ($tpoll->status == 0) checked @endif>
+                    <input class="form-check-input" type="radio" name="status" id="status3" value="0" checked {{-- @if ($tpoll->status == 0) checked @endif --}}>
                     <label class="form-check-label" for="status3">
                        {{ __('Archived') }}
                     </label>

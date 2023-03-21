@@ -25,6 +25,7 @@ class StoreMemberRequest extends FormRequest
             'name' => 'string|required',
             'surname' => 'string|required',
             'phone' => 'string|required',
+            'mail' => 'email|required',
             'status' => 'integer|required|numeric|digits_between:0,1',
 
         ];

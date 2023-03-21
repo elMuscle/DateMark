@@ -25,6 +25,7 @@ class StoreEventRequest extends FormRequest
             'datum' => 'date|required',
             'was' => 'string|required',
             'ort' => 'string|required',
+            'need' => 'integer|required|numeric',
             'beginn' => ['required', 'date_format:"H:i"'],
             'ende' => ['required', 'date_format:"H:i"'],
             'tpoll_id' => 'integer|numeric',

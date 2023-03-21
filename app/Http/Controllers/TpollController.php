@@ -21,12 +21,14 @@ class TpollController extends Controller
     {
         //
         $tpolls = Tpoll::all()->sortByDesc('id');
+        $today = Carbon::now()->format('Y-m-d');
 
         return view('tpolls.index', [
             'tpolls' => $tpolls,
             'tpolls_active' => $tpolls->where('status', 2),
             'tpolls_edit' => $tpolls->where('status', 1),
             'tpolls_archive' => $tpolls->where('status', 0),
+            'today' => $today,
         ]);
     }
 
@@ -69,6 +71,9 @@ class TpollController extends Controller
      */
     public function edit(Tpoll $tpoll): View
     {
+        // change tpoll status
+        $tpoll->status = 1;
+        $tpoll->save();
         //
         return view('tpolls.edit', [
             'tpoll' => $tpoll

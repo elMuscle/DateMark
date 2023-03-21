@@ -86,7 +86,7 @@
 </table>
 </div>
 @endif
-
+@include('partials._footer')
 @endsection
 
 @section('scripts')

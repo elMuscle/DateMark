@@ -33,7 +33,7 @@
         <span class="caption">Alle Cookies löschen!</span>
     </button>
 </div>
-
+@include('partials._footer')
 @endsection
 
 @section('scripts')
