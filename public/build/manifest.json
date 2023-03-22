@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-65d2a704.css",
+    "file": "assets/app-a777e61d.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -9,10 +9,25 @@
     "isEntry": true,
     "src": "resources/css/bootstrap.css"
   },
+  "resources/css/datemark-dark.css": {
+    "file": "assets/datemark-dark-a7e3a6c7.css",
+    "isEntry": true,
+    "src": "resources/css/datemark-light.css"
+  },
+  "resources/css/datemark-light.css": {
+    "file": "assets/datemark-dark-a7e3a6c7.css",
+    "isEntry": true,
+    "src": "resources/css/datemark-light.css"
+  },
   "resources/css/main.css": {
     "file": "assets/main-8f9c8ac7.css",
     "isEntry": true,
     "src": "resources/css/main.css"
+  },
+  "resources/css/metro-all.min.css": {
+    "file": "assets/metro-all.min-cae33ec5.css",
+    "isEntry": true,
+    "src": "resources/css/metro-all.min.css"
   },
   "resources/js/app.js": {
     "file": "assets/app-9a25e63b.js",
@@ -23,5 +38,10 @@
     "file": "assets/bootstrap.bundle-3d02370a.js",
     "isEntry": true,
     "src": "resources/js/bootstrap.bundle.js"
+  },
+  "resources/js/metro.min.js": {
+    "file": "assets/metro.min-ac1a2815.js",
+    "isEntry": true,
+    "src": "resources/js/metro.min.js"
   }
 }

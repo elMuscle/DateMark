@@ -35,7 +35,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-content p-2">
+                    <div class="card-content p-2 h-100">
                         @if ($tpoll->events()->where('datum', '>=', $today)->orderBy('datum')->count() != 0)
                         <div class="border-bottom bd-lightGray pb-2">
                             <div class="row flex-align-center">

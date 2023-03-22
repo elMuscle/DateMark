@@ -5,7 +5,7 @@
 @section('inhalt')
 
 {{-- Beschreibung --}}
-<h4 class="mt-3 mt-7-md mb-0 p-3 bg-owrBlue fg-white bd-owrBlue border-left border-size-4"><span class='mif-calendar'></span>@if (isset($active_member->name)) {{ $active_member->name }} {{ $active_member->surname }} <small class="fg-white">Events</small>@endif</h4>
+<h4 class="mt-3 mt-7-md mb-0 p-3 bg-owrBlue fg-white bd-owrBlue border-left border-size-4"><span class='mif-calendar'></span>@if (isset($active_member->name)) {{ $active_member->name }} {{ str(Str::substr($active_member->surname, 0, 3))->append('.') }} <small class="fg-white">Events</small>@endif</h4>
 {{-- Formularfelder --}}
 <div class="mt-4 d-none-print">
     <form method="GET" action="{{ Route('tpollsguest.member') }}" id="NamenAuswahl">
@@ -16,7 +16,7 @@
                     @if (isset($active_member->id) && $member->id == $active_member->id)
                         selected="selected"
                     @endif
-                >{{ $member->name }} {{ $member->surname }}</option>
+                >{{ $member->name }} {{ str(Str::substr($member->surname, 0, 3))->append('.') }}</option>
             @endforeach
         </select>
     </form>

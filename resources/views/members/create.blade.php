@@ -38,6 +38,15 @@
                 </div>
                 <div id="eventPhone" class="form-text">{{ __('Phone Number of this Member') }}</div>
             </div>
+            {{-- Phone E-Mail --}}
+            <div class="mb-3">
+                <label for="mail" class="form-label">{{ __('E-Mail') }}</label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control @error('mail') is-invalid @enderror" id="mail" name="mail" value="" aria-describedby="eventMail">
+                    <div class="invalid-feedback">@error('mail') {{ $message }} @enderror</div>
+                </div>
+                <div id="eventMail" class="form-text">{{ __('E-Mail of this Member') }}</div>
+            </div>
             {{-- Input status --}}
             <div class="mb-3">
                 <label class="form-check-label" for="status1">Status</label>

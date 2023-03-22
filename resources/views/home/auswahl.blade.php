@@ -13,7 +13,24 @@
                     data-caption="{{ $tpoll->titel }}"
                     onclick="window.location.href = '{{ route('tpollsguest.show',['tpoll'=>$tpoll->id]) }}';"
                     id="$count"
-                    data-content="{{ $tpoll->info }}<!-- <div class='mt-1 w-50-sm w-25-xl' data-role='progress' data-value='0' data-small='true'>-->"
+                    data-content="
+
+                    <div class='mt-1 w-50-sm w-25-xl' data-role='progress' data-value='
+                                    @php
+                                    $percent = 0;
+                                    $missing = 0;
+                                    $event_amount = $tpoll->events()->where('datum', '>=', $today)->orderBy('datum')->count();
+                                    foreach ($tpoll->events()->where('datum', '>=', $today)->orderBy('datum')->get() as $event) {
+                                        $event_percent = $event->members()->where('verfuegbarkeit','=', '3')->count()/$event->need*100;
+                                        $percent = $percent + ($event_percent/$event_amount);
+                                        if ($event->need - $event->members()->where('verfuegbarkeit','=', '3')->count() > 0) {
+                                            $missing = $missing + $event->need - $event->members()->where('verfuegbarkeit','=', '3')->count();
+                                        }
+                                    }
+                                    echo round($percent);
+                                    @endphp
+                                    ' data-small='true'></div>
+                    "
                 ></li>
             @endforeach
             @foreach ($tpolls_edit as $tpoll)

@@ -36,7 +36,19 @@
                 </div>
                 <div id="eventOrt" class="form-text">{{ __('Enter the Location of your event') }}</div>
             </div>
-
+            {{-- Input People --}}
+            <div class="mb-3">
+                <label for="need" class="form-label">{{ __('People needed') }}</label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="need" name="need" value="{{ $event->need }}" aria-describedby="eventNeed">
+                    @error('need')
+                        <div class="invalid-feedback">
+                        {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div id="eventNeed" class="form-text">{{ __('Enter the amount of people you need') }}</div>
+            </div>
             {{-- Select Tpoll --}}
             <div class="mb-3">
                 <label for="tpoll_id" class="form-label">{{ __('Tpoll') }}</label>
