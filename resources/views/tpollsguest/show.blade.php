@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'ÖWR Planungstool LV Wien - Terminlisten')
+@section('title', 'Planungstool LV Wien - Terminlisten')
 
 @section('inhalt')
 
