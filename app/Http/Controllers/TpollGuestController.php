@@ -55,7 +55,7 @@ class TpollGuestController extends Controller
                 $found = false;
                 //and then at every member of this event
                 foreach ($event->members as $member) {
-                    $found = false;
+                    //$found = false;
                     //when you find a member with id of active member, return the status, else, return 1
                     if ($member->id == $active_member->id) {
                         $status = $member->pivot->verfuegbarkeit;
