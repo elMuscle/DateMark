@@ -1,0 +1,18 @@
+Neue Veränderungen von 2023:
+-> +Member -> Reihenfolge der Liste: Nachname, Vorname, E-Mai, Telefon
+-> Bei Event neue Spalte mit Dropdown für Funktionen der Leute
+!!!-> Event -> Zeit ändern zu Textfeld
+-> Event -> Anzahl der Leute zu Textfeld ändern + alle Berechnungen weg + Spalte bei Tpoll anzeige "von xx" entfernen
+-> Tpoll Ansicht -> Titel spalte max Breite einstellen
+-> Tpoll Ansicht -> Suchfeld anzeigen
+
+!!!-> Event -> Event als "organisiert" markieren
+!!!-> TpollGuest -> fertige events anzeigen, aber können nicht bearbeitet werden
+!!! feld sperren bei personenanzahl erreicht
+
+-> Hintergrundfarbe für Events, mitspeichern
+-> Auswahllisten für mitglieder Nachnamen zuerst
+
+-> Kommentarfeld umsetzen? Vielleicht Kommentar jeweils zur person speichern, dann verschwindet er auch, wenn die person sich wieder rauslöscht
+
+-> DateMark Logo gegen ÖWR Logo austauschen
