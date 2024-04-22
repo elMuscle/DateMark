@@ -19,6 +19,7 @@ return [
     'thanks' => 'Thank you for your help!',
     'improve' => 'Is there something to improve?',
     'suggestions' => 'Let us know!',
+    'created' => 'Created by',
     'usage' => 'using',
     'privacy' => 'Privacy',
     'cookies' => 'Cookies',
