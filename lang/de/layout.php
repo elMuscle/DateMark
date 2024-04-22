@@ -19,6 +19,7 @@ return [
     'thanks' => 'Danke für Deine Einsatzbereitschaft!',
     'improve' => 'Was können wir verbessern?',
     'suggestions' => 'Gib uns Tipps!',
+    'created' => 'Erstellt von',
     'usage' => 'unter Verwendung von',
     'privacy' => 'Datenschutz',
     'cookies' => 'Cookies',
