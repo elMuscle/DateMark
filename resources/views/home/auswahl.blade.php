@@ -13,7 +13,7 @@
                     data-caption="{{ $tpoll->titel }}"
                     onclick="window.location.href = '{{ route('tpollsguest.show',['tpoll'=>$tpoll->id]) }}';"
                     id="$count"
-                    data-content="
+                    data-content="{{ $tpoll->info }}"
 
                     {{-- <div class='mt-1 w-50-sm w-25-xl' data-role='progress' data-value='
                                     @php
@@ -30,7 +30,7 @@
                                     echo round($percent);
                                     @endphp
                                     ' data-small='true'></div>
-                     --}}"
+                     --}}
                 ></li>
             @endforeach
             @foreach ($tpolls_edit as $tpoll)
