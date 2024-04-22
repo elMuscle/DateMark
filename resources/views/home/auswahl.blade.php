@@ -15,7 +15,7 @@
                     id="$count"
                     data-content="
 
-                    <div class='mt-1 w-50-sm w-25-xl' data-role='progress' data-value='
+                    {{-- <div class='mt-1 w-50-sm w-25-xl' data-role='progress' data-value='
                                     @php
                                     $percent = 0;
                                     $missing = 0;
@@ -30,7 +30,7 @@
                                     echo round($percent);
                                     @endphp
                                     ' data-small='true'></div>
-                    "
+                     --}}"
                 ></li>
             @endforeach
             @foreach ($tpolls_edit as $tpoll)
