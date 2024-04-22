@@ -83,7 +83,7 @@ if(isset($nameincookie)){
         <tbody>
             @forelse ($usedmembers as $member)
                 <tr>
-                    <td class="sticky op-white">{{ str(Str::substr($member->surname, 0, 3))->append('.') }} {{ $member->name }} </td>
+                    <td class="sticky op-white">{{ $member->surname }} {{ $member->name }} </td>
                     @foreach ($events as $event)
                         @if ($member->events->contains($event->id))
 
