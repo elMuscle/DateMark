@@ -158,7 +158,7 @@ if(isset($nameincookie)){
             @if (isset($active_member->name))
             <tr class="">
                 <td class="namensplatz">@if (isset($active_member->name))
-                    {{ $active_member->name }} {{ str(Str::substr($active_member->surname, 0, 3))->append('.') }}
+                    {{ $active_member->name }} {{ $active_member->surname }}
                 @else
                     No Member selected
                 @endif</td>
@@ -173,7 +173,10 @@ if(isset($nameincookie)){
                             <div class="p-2 text-center"><input type="radio" value="2" data-role="radio" data-style="2" data-cls-check="bd-amber myCheckVielleicht" name="{{ $event->id }}" @if ($active_member_status[$counter] == 2) checked @endif></div>
                             <div class="p-2 text-center"><input type="radio" value="1" data-role="radio" data-style="2" data-cls-check="bd-gray myCheckNix" name="{{ $event->id }}" @if ($active_member_status[$counter] == 1) checked @endif></div>
                             <div class="p-2 text-center"><input type="radio" value="0" data-role="radio" data-style="2" data-cls-check="bd-red myCheckNein" name="{{ $event->id }}" @if ($active_member_status[$counter] == 0) checked @endif></div>
-                        </div>
+                        <div class="p-2 text-center">{{ $counter }}</div>
+						<div class="p-2 text-center">{{ $active_member_status[$counter] }}</div>
+                        
+						</div>
                     </td>
                 @php
                     $counter++;
@@ -195,7 +198,7 @@ if(isset($nameincookie)){
                     @if (isset($active_member->id) && $member->id == $active_member->id)
                         selected="selected"
                     @endif
-                >{{ $member->surname }} {{ $member->name }}</option>
+                >{{ $member->name }} {{ $member->surname }}</option>
             @endforeach
         </select>
     </form>
