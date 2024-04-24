@@ -180,7 +180,7 @@ if(isset($nameincookie)){
                             @if ($event->status == 0)
                             <div class="p-2 text-center"><span class="mif-cross fg-red"></div>
                             @endif
-                            <div class="p-2 text-center @if ($event->status == 0) d-none @endif"><input type="radio" value="3" data-role="radio" data-style="2" data-cls-check="bd-green myCheckJa" name="{{ $event->id }}" @if ($active_member_status[$counter] == 3) checked @endif></div>
+                            <div class="p-2 text-center @if ($event->status == 0 || ($event->members()->where('verfuegbarkeit','=', '3')->count() == $event->need) && $active_member_status[$counter] != 3) d-none @endif"><input type="radio" value="3" data-role="radio" data-style="2" data-cls-check="bd-green myCheckJa" name="{{ $event->id }}" @if ($active_member_status[$counter] == 3) checked @endif></div>
                             <div class="p-2 text-center @if ($event->status == 0) d-none @endif"><input type="radio" value="2" data-role="radio" data-style="2" data-cls-check="bd-amber myCheckVielleicht" name="{{ $event->id }}" @if ($active_member_status[$counter] == 2) checked @endif></div>
                             <div class="p-2 text-center @if ($event->status == 0) d-none @endif"><input type="radio" value="1" data-role="radio" data-style="2" data-cls-check="bd-gray myCheckNix" name="{{ $event->id }}" @if ($active_member_status[$counter] == 1) checked @endif></div>
                             <div class="p-2 text-center @if ($event->status == 0) d-none @endif"><input type="radio" value="0" data-role="radio" data-style="2" data-cls-check="bd-red myCheckNein" name="{{ $event->id }}" @if ($active_member_status[$counter] == 0) checked @endif></div>
