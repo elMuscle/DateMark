@@ -20,6 +20,7 @@ return new class extends Migration
             $table->time('beginn');
             $table->time('ende');
             $table->tinyInteger('need')->unsigned();
+            $table->tinyInteger('status')->unsigned();
             $table->timestamps();
         });
     }

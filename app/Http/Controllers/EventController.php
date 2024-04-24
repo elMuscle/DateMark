@@ -90,7 +90,21 @@ class EventController extends Controller
 
         return redirect()->route('events.index');
     }
+    /**
+     * Update Event-Status in storage.
+     */
+    public function updatestatus( Event $event): RedirectResponse
+    {
+        //Change Boolean Value of $event->status
+        $event->status ^= 1;
 
+        //Save changes
+        $event->save();
+
+        return redirect()->route('tpolls.show', [
+            'tpoll' => $event->tpoll->id,
+        ]);
+    }
     /**
      * Remove the specified resource from storage.
      */

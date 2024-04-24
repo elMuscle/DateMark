@@ -22,7 +22,8 @@ class EventFactory extends Factory
             'ort' => fake()->streetAddress(),
             'beginn' => fake()->time('H:i'),
             'ende' => fake()->time('H:i'),
-            'need' => fake()->numberBetween(2,5)
+            'need' => fake()->numberBetween(2,5),
+            'status' => fake()->numberBetween(0,1)
         ];
     }
 }

@@ -33,7 +33,7 @@
                     <th data-sortable="true" data-format="date" data-sort-dir="asc" data-format-mask="%d.%m.%Y">{{ __('Date') }}</th>
                     <th>{{ __('Time') }}</th>
                     <th>{{ __('Coming') }}</th>
-                    <th class="d-none-print" data-cls-column="d-none-print" >{{ __('Coming %') }}</th>
+                    <th class="d-none-print" data-cls-column="d-none-print" >{{ __('Status') }}</th>
                     <th class="d-none-print" data-cls-column="d-none-print" >{{ __('Edit') }}</th>
                 </tr>
                 </thead>
@@ -46,8 +46,18 @@
                             <td>{{ $event->datum->format('d.m.Y') }}</td>
                             <td>{{ $event->beginn->format('H:i') }} - {{ $event->ende->format('H:i') }}</td>
                             <td>{{ $event->members()->where('verfuegbarkeit','=', '3')->count() }} von {{ $event->need }}</td>
-                            <td><div data-role='progress' data-value='{{ $event->members()->where('verfuegbarkeit','=', '3')->count()/$event->need*100 }}' data-small='true'></div></td>
-                            <td><a href="{{ route('events.edit',['event' => $event]) }}" type="button" class="button warning outline">{{ __('Edit') }}</a></td>
+                            <td>
+                                @if ($event->status == 1)
+                                    <span class="tally success">{{ __('Active') }}</span>
+                                @else
+                                    <span class="tally alert">{{ __('Archived') }}</span>
+                                @endif
+                                {{-- <div data-role='progress' data-value='{{ $event->members()->where('verfuegbarkeit','=', '3')->count()/$event->need*100 }}' data-small='true'> --}}
+                            </td>
+                            <td>
+                                <a href="{{ route('events.updatestatus',['event' => $event]) }}" type="button" class="button success outline">{{ __('Change Status') }}</a>
+                                <a href="{{ route('events.edit',['event' => $event]) }}" type="button" class="button warning outline">{{ __('Edit') }}</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

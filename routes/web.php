@@ -35,6 +35,7 @@ Route::get('/member-events', [TpollGuestController::class, 'member'])->name('tpo
 
 Route::resource('/members',MemberController::class)->middleware('auth');
 Route::resource('/events',EventController::class)->middleware('auth');
+Route::get('/events/{event}/status', [EventController::class, 'updatestatus'])->name('events.updatestatus');
 
 Route::get('/dashboard', [TpollController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
