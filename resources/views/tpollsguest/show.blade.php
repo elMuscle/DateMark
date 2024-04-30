@@ -158,7 +158,7 @@ if(isset($nameincookie)){
                 <th><span class='text-bold'>Status</span></th>
                 @foreach ($events as $event)
                     <th>
-                        <span class='text-bold'> @if ($event->status == 1) in Planung @else beendet @endif</span>
+                        <span class='text-bold'> @if ($event->status == 1) in Planung @else final @endif</span>
                     </th>
                 @endforeach
             </tr>
