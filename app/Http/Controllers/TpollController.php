@@ -90,7 +90,7 @@ class TpollController extends Controller
 
         $tpoll->update($data);
 
-        return redirect()->route('tpolls.index');
+        return redirect()->route('tpollsguest.show',['tpoll'=>$tpoll->id]);
     }
 
     /**
