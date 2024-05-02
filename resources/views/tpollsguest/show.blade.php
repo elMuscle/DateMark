@@ -5,7 +5,11 @@
 @section('inhalt')
 
 {{-- Beschreibung --}}
-<h4 class="mt-3 mt-7-md mb-0 p-3 bg-owrBlue fg-white bd-owrBlue border-left border-size-4"><span class='mif-clipboard'></span> {{ $tpoll->titel }}</h4>
+<h4 class="mt-3 mt-7-md mb-0 p-3 bg-owrBlue fg-white bd-owrBlue border-left border-size-4"><span class='mif-clipboard'></span> {{ $tpoll->titel }}
+    @auth
+    <button class="button @if ($tpoll->status != 1) warning @else default @endif" @if ($tpoll->status != 1) onclick="window.location.href = '{{ route('tpolls.edit',['tpoll'=>$tpoll->id]) }}';" @endif>{{ __('Tpoll') }} {{ __('Edit') }}</button>
+    @endauth
+</h4>
 <div class="p-3 pt-7 bg-grayWhite bd-owrBlue border-left border-size-4 d-none-print">
 <?php
 if(isset($nameincookie)){
@@ -79,6 +83,16 @@ if(isset($nameincookie)){
                 </th>
             @endforeach
         </tr>
+        @auth
+            <tr>
+                <th><span class='text-bold'></span></th>
+                @foreach ($events as $event)
+                    <th>
+                        <a href="{{ route('events.edit',['event' => $event]) }}" type="button" class="button warning outline">{{ __('Edit') }}</a>
+                    </th>
+                @endforeach
+            </tr>
+        @endauth
         </thead>
         <tbody>
             @forelse ($usedmembers as $member)
