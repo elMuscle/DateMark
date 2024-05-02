@@ -88,7 +88,9 @@ class EventController extends Controller
 
         $event->update($data);
 
-        return redirect()->route('events.index');
+        return redirect()->route('tpollsguest.show', [
+            'tpoll' => $event->tpoll->id,
+        ]);
     }
     /**
      * Update Event-Status in storage.
@@ -101,7 +103,7 @@ class EventController extends Controller
         //Save changes
         $event->save();
 
-        return redirect()->route('tpolls.show', [
+        return redirect()->route('tpollsguest.show', [
             'tpoll' => $event->tpoll->id,
         ]);
     }

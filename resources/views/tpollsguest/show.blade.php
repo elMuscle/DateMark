@@ -93,6 +93,24 @@ if(isset($nameincookie)){
                 @endforeach
             </tr>
         @endauth
+        <tr>
+            <th><span class='text-bold'>Status</span></th>
+            @foreach ($events as $event)
+                <th>
+                    <span class='text-bold'> @if ($event->status == 1) in Planung @else final @endif</span>
+                </th>
+            @endforeach
+        </tr>
+        @auth
+            <tr>
+                <th><span class='text-bold'></span></th>
+                @foreach ($events as $event)
+                    <th>
+                        <a href="{{ route('events.updatestatus',['event' => $event]) }}" type="button" class="button success outline">{{ __('Change Status') }}</a>
+                    </th>
+                @endforeach
+            </tr>
+        @endauth
         </thead>
         <tbody>
             @forelse ($usedmembers as $member)
@@ -176,6 +194,16 @@ if(isset($nameincookie)){
                     </th>
                 @endforeach
             </tr>
+            @auth
+                <tr>
+                    <th><span class='text-bold'></span></th>
+                    @foreach ($events as $event)
+                        <th>
+                            <a href="{{ route('events.updatestatus',['event' => $event]) }}" type="button" class="button success outline">{{ __('Change Status') }}</a>
+                        </th>
+                    @endforeach
+                </tr>
+            @endauth
 
             @if (isset($active_member->name))
             <tr class="">
