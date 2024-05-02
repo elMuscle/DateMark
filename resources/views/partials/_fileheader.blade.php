@@ -14,6 +14,7 @@
 <meta property="og:type" content="website">
 
 <!-- Stylesheets -->
+<link rel="icon" href="img/owrlogo.ico">
 <link rel="stylesheet" href="{{ url('css/metro-all.min.css') }}">
 <link rel="stylesheet" href="{{ url('css/main.css') }}"><?php echo PHP_EOL ?>
 
