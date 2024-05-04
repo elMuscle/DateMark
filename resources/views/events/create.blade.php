@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h4>
-            {{ __('Edit Event') }}
+            {{ __('Create Event') }}
         </h4>
     </x-slot>
 
