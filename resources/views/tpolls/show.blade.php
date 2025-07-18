@@ -41,8 +41,8 @@
                     @foreach ($events as $event)
                         <tr>
                             {{-- <td>{{ $event->id }}</td> --}}
-                            <td><a href="{{ route('events.show',['event' => $event]) }}">{{ $event->was }}</a></td>
-                            <td>{{ $event->ort }}</td>
+                            <td><a href="{{ route('events.show',['event' => $event]) }}">{{ Str::limit($event->was, 40) }}</a></td>
+                            <td>{{ Str::limit($event->ort, 20) }}</td>
                             <td>{{ $event->datum->format('d.m.Y') }}</td>
                             <td>{{ $event->beginn->format('H:i') }} - {{ $event->ende->format('H:i') }}</td>
                             <td>{{ $event->members()->where('verfuegbarkeit','=', '3')->count() }} von {{ $event->need }}</td>
