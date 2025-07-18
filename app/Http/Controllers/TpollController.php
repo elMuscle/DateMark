@@ -11,6 +11,8 @@ use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreTpollRequest;
 use App\Http\Requests\UpdateTpollRequest;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Auth;
 
 class TpollController extends Controller
 {
@@ -71,10 +73,16 @@ class TpollController extends Controller
      */
     public function edit(Tpoll $tpoll): View
     {
-        // change tpoll status
+        // Set lock in cache
+        $lockKey = 'tpoll_edit_lock_' . $tpoll->id;
+        $lockData = [
+            'user_id' => Auth::id() ?? session()->getId(),
+            'timestamp' => now()
+        ];
+        Cache::put($lockKey, $lockData, now()->addMinutes(10));
         $tpoll->status = 1;
         $tpoll->save();
-        //
+        session(['editing_tpoll_id' => $tpoll->id]);
         return view('tpolls.edit', [
             'tpoll' => $tpoll
         ]);
@@ -90,6 +98,12 @@ class TpollController extends Controller
 
         $tpoll->update($data);
 
+        // Remove lock from cache
+        Cache::forget('tpoll_edit_lock_' . $tpoll->id);
+        session()->forget('editing_tpoll_id');
+        $tpoll->status = 2;
+        $tpoll->save();
+
         return redirect()->route('tpollsguest.show',['tpoll'=>$tpoll->id]);
     }
 
@@ -100,5 +114,16 @@ class TpollController extends Controller
     {
         //
         return redirect()->route('tpolls.index');
+    }
+
+    public function heartbeat(Tpoll $tpoll)
+    {
+        $lockKey = 'tpoll_edit_lock_' . $tpoll->id;
+        $lockData = [
+            'user_id' => Auth::id() ?? session()->getId(),
+            'timestamp' => now()
+        ];
+        Cache::put($lockKey, $lockData, now()->addMinutes(10));
+        return response()->json(['status' => 'ok']);
     }
 }

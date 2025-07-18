@@ -28,6 +28,7 @@ Route::controller(HomeController::class)->group(function () {
 });
 
 Route::resource('/tpolls', TpollController::class)->middleware('auth');
+Route::post('/tpolls/{tpoll}/heartbeat', [TpollController::class, 'heartbeat'])->name('tpolls.heartbeat');
 
 Route::put('tpollsguest', [TpollGuestController::class, 'update'])->name('tpollsguest.update');
 Route::delete('member-events', [TpollGuestController::class, 'cancel'])->name('tpollsguest.cancel');

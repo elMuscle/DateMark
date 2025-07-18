@@ -67,4 +67,14 @@
             <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
         </form>
     </div>
+    <script>
+        setInterval(function() {
+            fetch("{{ route('tpolls.heartbeat', ['tpoll' => $tpoll->id]) }}", {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            });
+        }, 60000); // every 60 seconds
+    </script>
 </x-app-layout>

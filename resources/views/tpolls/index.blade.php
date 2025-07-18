@@ -8,8 +8,17 @@
     <!-- Print out Tpolls-->
     <div class="container mt-5">
         <div class="row">
+            @php
+                // Collect lock info for all tpolls
+                $tpollLocks = [];
+                foreach ($tpolls as $tpoll) {
+                    $lock = Cache::get('tpoll_edit_lock_' . $tpoll->id);
+                    $tpollLocks[$tpoll->id] = $lock && now()->diffInMinutes($lock['timestamp']) < 10;
+                }
+            @endphp
             <!-- Loop through Tpolls-->
             @foreach ($tpolls as $tpoll)
+            @php $isLocked = $tpollLocks[$tpoll->id] ?? false; @endphp
             <div class="cell-sm-6 cell-lg-4 cell-xl-3">
                 <div class="card">
                     <div class="card-header">
@@ -65,7 +74,10 @@
                         <p>Events: <code class="info"> {{ $tpoll->events()->count() }}</code></p>
                     </div>
                     <div class="card-footer">
-                        <button class="button @if ($tpoll->status != 1) warning @else default @endif outline" @if ($tpoll->status != 1) onclick="window.location.href = '{{ route('tpolls.edit',['tpoll'=>$tpoll->id]) }}';" @endif>Edit</button>
+                        <button class="button @if ($tpoll->status != 1 && !$isLocked) warning @else default @endif outline" @if ($tpoll->status != 1 && !$isLocked) onclick="window.location.href = '{{ route('tpolls.edit',['tpoll'=>$tpoll->id]) }}';" @else disabled @endif>Edit</button>
+                        @if($isLocked)
+                            <span class="ml-2 fg-gray">{{ __('Locked for editing') }}</span>
+                        @endif
                     </div>
                 </div>
             </div>
