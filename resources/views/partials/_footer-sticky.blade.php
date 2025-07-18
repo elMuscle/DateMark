@@ -1,4 +1,4 @@
-<footer class="mt-10 row bg-lightGray bd-gray border-top border-size-5 d-none-print">
+<footer class="mt-10 row bg-lightGray bd-gray border-top border-size-5 d-none-print fixed-bottom">
     <div class="cell-5 cell-md p-2">
       <span>{{ __('layout.created') }} Lukas Kubica<span class="d-none d-inline-md">, Daniel Gonaus und Christian Wiskott </span></span>
     </div>

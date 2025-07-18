@@ -66,7 +66,7 @@
 {{-- <div class="p-3 mt-3 bg-grayWhite">
     <p>--> {{ __('layout.improve') }} <a href="mailto:mail@lukaskubica.com">{{ __('layout.suggestions') }}</a></p>
 </div> --}}
-@include('partials._footer')
+@include('partials._footer-sticky')
 </div>
 
 @endsection
