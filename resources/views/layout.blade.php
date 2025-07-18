@@ -27,15 +27,23 @@
             </header>
         @endauth
 
-        <div class="d-none-print">
-            <div class="row flex-align-center" style="max-height: 300px;">
-                <div class="cell-3 cell-md-one-third p-2"><a href="{{ route('home.index') }}"><img class="mw-75-md mw-50-xl d-block mx-auto mr-0-md" src="{{ url('https://w.owr.at/w-owr/wp-content/uploads/2022/11/OWR-Abziehbild.svg') }}"  style="max-height: 200px;"></a></div>
-                <div class="cell-9 cell-md-two-third p-2 pt-5"><h1><span class="fg-owrRed">{{ Config::get('app.name', 'DateMark'); }}</span> <br /> <small class="d-none d-inline-md">{{ __('layout.subtitle') }}</small></h1></div>
+        <div class="d-none-print d-flex flex-justify-center mt-5">
+            <div class="d-flex flex-row flex-align-center align-items-center">
+                <div class="p-2">
+                    <img src="{{ url('https://w.owr.at/w-owr/wp-content/uploads/2022/11/OWR-Abziehbild.svg') }}" alt="Logo" width="100" height="100">
+                </div>
+                <div class="p-2">
+                    <h1 class="m-0"><span class="fg-owrRed">{{ Config::get('app.name', 'DateMark'); }}</span></h1>
+                </div>
             </div>
+        </div>
+
+        <div class="d-none-print">
             <div>
             @yield('menu')
             </div>
         </div>
+
         <!-- Inhalt -->
         <div>
             @yield('inhalt')

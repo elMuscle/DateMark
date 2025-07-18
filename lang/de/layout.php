@@ -15,7 +15,7 @@ return [
     'heading' => 'Bestimmt die beste Termin-App, die es gibt!',
     'subtitle' => 'Termine, Abstimmungen, ...',
     'welcome' => 'Willkommen',
-    'lists' => 'Hier findest du alle offenen Terminlisten',
+    'lists' => 'Alle Termine auf einen Blick',
     'thanks' => 'Danke für Deine Einsatzbereitschaft!',
     'improve' => 'Was können wir verbessern?',
     'suggestions' => 'Gib uns Tipps!',
@@ -26,5 +26,6 @@ return [
     'login' => 'Login',
     'reconstruction' => 'Diese Liste wird gerade bearbeitet: Bitte komme später wieder.',
     'notpolls' => 'Keine Terminliste vorhanden --> Entspannung ;)',
+    'myevents' => 'Meine Einsätze',
 
 ];

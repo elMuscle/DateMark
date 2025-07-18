@@ -3,7 +3,8 @@
 @section('title', 'Datemark - Home')
 
 @section('inhalt')
-<div class="container">
+<div class="d-flex flex-justify-center">
+<div class="">
 <h4 class="mt-7 mb-0 p-3 bg-owrBlue fg-white bd-owrBlue border-left border-size-4"><span class='mif-books'></span> {{ __('layout.welcome') }} <small class="fg-white">{{ __('layout.lists') }}</small></h4>
 <div class="">
     @if ((count($tpolls_active)+count($tpolls_edit))>0)
@@ -47,18 +48,24 @@
         </div>
     @endif
 </div>
-<div class="border border-top-none p-3 d-flex flex-justify-center">
+</div>
+</div>
+
+
+<div class="p-3 d-flex flex-justify-center">
     <button class="image-button success" onclick="window.location.href = '{{ route('tpollsguest.member') }}';">
         <span class="mif-calendar icon"></span>
-        <span class="caption">Meine Einsätze</span>
+        <span class="caption"><h5 class="m-0">{{ __('layout.myevents') }}</h5></span>
     </button>
 </div>
-<div class="p-3 bg-grayWhite bd-owrBlue border-top border-size-5">
-    <p>Danke für Deine Einsatzbereitschaft!</p>
+<div class="p-3 d-flex flex-justify-center">
+    <div class="mt-5 p-3 bg-grayWhite bd-owrBlue border-top border-size-5">
+        <p>Danke für Deine Einsatzbereitschaft!</p>
+    </div>
 </div>
-<div class="p-3 mt-3 bg-grayWhite">
-    <p>--> {{ __('layout.improve') }} <a href="mailto:datemark@lukaskubica.de">{{ __('layout.suggestions') }}</a></p>
-</div>
+{{-- <div class="p-3 mt-3 bg-grayWhite">
+    <p>--> {{ __('layout.improve') }} <a href="mailto:mail@lukaskubica.com">{{ __('layout.suggestions') }}</a></p>
+</div> --}}
 @include('partials._footer')
 </div>
 
