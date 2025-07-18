@@ -7,6 +7,7 @@ use App\Http\Controllers\TpollController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TpollGuestController;
+use App\Http\Controllers\GuestPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,9 @@ Route::resource('/tpolls', TpollController::class)->middleware('auth');
 
 Route::put('tpollsguest', [TpollGuestController::class, 'update'])->name('tpollsguest.update');
 Route::delete('member-events', [TpollGuestController::class, 'cancel'])->name('tpollsguest.cancel');
-Route::get('tpollsguest/{tpoll}', [TpollGuestController::class, 'show'])->name('tpollsguest.show');
+Route::get('tpollsguest/{tpoll}', [TpollGuestController::class, 'show'])
+    ->name('tpollsguest.show')
+    ->middleware('guest.password');
 Route::get('/member-events', [TpollGuestController::class, 'member'])->name('tpollsguest.member');
 
 Route::resource('/members',MemberController::class)->middleware('auth');
@@ -38,6 +41,14 @@ Route::resource('/events',EventController::class)->middleware('auth');
 Route::get('/events/{event}/status', [EventController::class, 'updatestatus'])->name('events.updatestatus')->middleware('auth');
 
 Route::get('/dashboard', [TpollController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/guest-password', [GuestPasswordController::class, 'showForm'])->name('guest.password.form');
+Route::post('/guest-password', [GuestPasswordController::class, 'verify'])->name('guest.password.verify');
+
+Route::get('/guest-password-reset', function () {
+    session()->forget('guest_authenticated');
+    return 'Guest session flag removed!';
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
