@@ -3,7 +3,13 @@
 @section('title', 'ÖWR Planungstool LV Wien - Terminlisten')
 
 @section('inhalt')
-
+<div class="d-flex flex-justify-center">
+    <div class="w-100">
+        <ul data-role="tabs" data-expand="true" data-cls-tabs="flex-justify-end mt-2">
+            <li><a href="#" onclick="history.back()"><span class="mif-arrow-left"></span>Zurück</a></li>
+        </ul>
+    </div>
+</div>
 {{-- Beschreibung --}}
 <h4 class="mt-3 mt-7-md mb-0 p-3 bg-owrBlue fg-white bd-owrBlue border-left border-size-4"><span class='mif-calendar'></span>@if (isset($active_member->name)) {{ $active_member->name }} {{ $active_member->surname }} <small class="fg-white">Events</small>@endif</h4>
 {{-- Formularfelder --}}
@@ -86,7 +92,7 @@
 </table>
 </div>
 @endif
-@include('partials._footer')
+@include('partials._footer-sticky')
 @endsection
 
 @section('scripts')
